@@ -3,7 +3,7 @@ layout: post
 title: "Mortes em Kill Bill (Linguagem R)"
 date: 2018-08-19 15:00:00 -0300
 tags: [Visualização, R]
-img: kill-bill.jpg
+img: kill-bill-1.jpg
 output: html_document
 ---
 Quando estava aprendendo o básico da **Linguagem R** e o **R Studio** em uma workshop do Igor Alcantara, ele disponibilizou algumas bases de dados dentre eles com ofecenças e mortes em filmes do Quentin Tarantino. Brincando um pouco a base encontrei uma lista de mortes em ambos volumes de Kill Bill

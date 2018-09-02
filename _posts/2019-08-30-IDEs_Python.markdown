@@ -3,7 +3,7 @@ layout: post
 title: "IDEs Python (Jupyter e Spyder)"
 date: 2018-08-30 13:32:48 -0300
 tags: [Ambiente, Python]
-img: js-1.png
+img: python-1.jpg
 output: html_document      
 ---
 

@@ -3,7 +3,7 @@ layout: post
 title: "Previsão de Sobreviventes do Titanic (Linguagem R)"
 date: 2018-08-19 15:00:00 -0300
 tags: ["Machine Learning", R]
-img: titanic.jpg
+img: titanic-1.jpg
 output: html_document    
 ---
 

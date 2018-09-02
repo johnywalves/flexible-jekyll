@@ -3,7 +3,7 @@ layout: post
 title: "Classificação de Séries IMDb (Linguagem R)"
 date: 2018-08-19 15:00:00 -0300
 tags: [Visualização, R]
-img: js-1.png
+img: imdb-1.jpg
 output: html_document
 ---
 

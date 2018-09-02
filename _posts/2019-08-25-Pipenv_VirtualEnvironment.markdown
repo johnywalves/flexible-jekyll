@@ -3,7 +3,7 @@ layout: post
 title: "PipEnv e Virtual Enviroment (Python)"
 date: 2018-08-25 15:00:00 -0300
 tags: [Ambiente, Python]
-img: js-1.png
+img: python-1.jpg
 output: html_document      
 ---
 
