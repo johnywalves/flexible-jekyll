@@ -23,7 +23,7 @@ social-email: contato@johnywalves.com.br
 discus-identifier: # add your discus identifier
 
 # Tracker
-analytics: # Google Analytics
+analytics: UA-125055658-1 # Google Analytics
 
 # Build Settings
 markdown: kramdown
