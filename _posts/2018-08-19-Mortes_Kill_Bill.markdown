@@ -8,6 +8,8 @@ output: html_document
 ---
 Quando estava aprendendo o básico da **Linguagem R** e o **R Studio** em uma workshop do Igor Alcantara, ele disponibilizou algumas bases de dados dentre eles com ofecenças e mortes em filmes do Quentin Tarantino. Brincando um pouco a base encontrei uma lista de mortes em ambos volumes de Kill Bill
 
+
+
 ### Ambiente
 
 Para preparar o ambiente informei o diretório de trabalho indicado pelo **"."** e limpei todas as variáveis de ambiente após pesquisar todas pelo *list = ls()*

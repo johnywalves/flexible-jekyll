@@ -7,6 +7,8 @@ img: python-1.jpg
 output: html_document      
 ---
 
+
+
 Ambientes de Desenvolvimentos ou IDE (Integrated Development Environment), a definição de um verdadeiro programador é o tema de sua IDE (sempre dark, para evitar cansaços aos olhos), essa ferramenta deve auxliar o desenvolvimento com validação de sintaxe, autopreencimento e facilidade para executar e publicar o objeto devenvolvido.<br>
 **Microsoft Visual Code**, **Sublime**
 
