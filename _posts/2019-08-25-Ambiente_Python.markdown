@@ -3,7 +3,7 @@ layout: post
 title: "Instalação do Python e Pacotes"
 date: 2018-08-25 15:00:00 -0300
 tags: [Ambiente, Python]
-img: python-1.jpg
+img: python-2.jpg
 output: html_document
 ---
 
