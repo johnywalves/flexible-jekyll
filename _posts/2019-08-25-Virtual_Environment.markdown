@@ -77,7 +77,7 @@ if __name__ == '__main__':
 
 ## Execução
 
-Para executar a aplicação em ambiente virtual, podemos executar a chamada \`flask run\` pelo shell 
+Para executar a aplicação em ambiente virtual, podemos executar a chamada `flask run` pelo shell 
 
 
 {% highlight bash %}
