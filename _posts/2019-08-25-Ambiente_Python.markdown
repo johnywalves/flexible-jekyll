@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Instalação do Python e Pacotes"
+title: "Preparando Ambiente Python e Pacotes"
 date: 2018-08-25 15:00:00 -0300
 tags: [Ambiente, Python]
 img: python-2.jpg
@@ -8,16 +8,19 @@ output: html_document
 ---
 
 
+
+Distribuições Linux possuem uma ou duas versões do Python já embarcadas
+
 ### Instalação do Python
 
-Com os intepretadores instalados através do [Python Downloads](https://www.python.org/downloads/) e os caminhos mapeados no sistema operacional, a interface de comando deve responder, apresentando a versão instalada do Python
+[Python Downloads](https://www.python.org/downloads/) e os caminhos mapeados no sistema operacional, a interface de comando deve responder, apresentando a versão instalada do Python
 
 
 {% highlight bash %}
 python --version
 {% endhighlight %}
 
-Na instalação vem junto com o **pip** um gerenciador de pacotes, para verificar a versão use o comando abaixo
+Na instalação vem junto com o **pip** um gerenciador de pacotes, para verificar a versão use o comando abaixo com importação do repositório [PyPI](https://pypi.org/)
 
 
 {% highlight bash %}
