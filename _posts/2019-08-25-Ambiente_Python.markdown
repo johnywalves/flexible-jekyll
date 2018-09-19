@@ -56,7 +56,7 @@ Para facilitar a portalidade e replicação de ambientes podemos exportar as lis
 pip freeze > requirements.txt
 {% endhighlight %}
 
-E posteriormente instalar a lista completa somente com um comando
+E posteriormente instalar a lisata completa somente com um comando
 
 
 {% highlight bash %}
