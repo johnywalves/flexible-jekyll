@@ -188,6 +188,8 @@ class response(Resource):
 post('http://localhost:5000/v1.0/posts').json()
 # {'message': 'Internal Server Error'} 
 {% endhighlight %}
+
+
 \`Missing Authorization Header\`
 
 

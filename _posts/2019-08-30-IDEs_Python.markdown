@@ -9,38 +9,63 @@ output: html_document
 
 
 
-Ambientes de Desenvolvimentos ou IDE (Integrated Development Environment), a definição de um verdadeiro programador é o tema de sua IDE (sempre dark, para evitar cansaços aos olhos), essa ferramenta deve auxliar o desenvolvimento com validação de sintaxe, autopreencimento e facilidade para executar e publicar o objeto devenvolvido.<br>
-Uma ótima pedida é [Microsoft Visual Code](https://code.visualstudio.com/) que possui terminal integrado e vários plugins
+Ambientes de Desenvolvimentos ou IDE (Integrated Development Environment) são ferramentas para auxliar o desenvolvimento com validações de sintaxe, autopreencimento de comandos, automação para executar e publicar o projeto devenvolvido<br>
+Lembrando que a definição de um verdadeiro programador é o tema de sua IDE, sempre dark para evitar cansaços aos olhos<br>
+Uma ótima pedida é [Microsoft Visual Code](https://code.visualstudio.com/) que possui terminal integrado e vários plugins, mas ótimas opções são o **Jupyter** e o **Spyder**, ambos com o [IPython](https://ipython.org/) integrada
 
 ### Jupyter Notebook
+
+Uma interface notebook executando direto no navegador, facilmente instalada pelo `pip` do **PyPI**
 
 
 {% highlight bash %}
 pip install jupyter
 {% endhighlight %}
 
+Para executar o jupyter e já abrir o navegador, o comando deve ser executado na pasta de trabalho
+
 
 {% highlight bash %}
 jupyter notebook
 {% endhighlight %}
 
+#### Acesso externo
+
+Para usar o notebook em um servidor é necessário alterar o arquivo de configuração, que pode ser gerado pelo comando
+
+
+{% highlight bash %}
+jupyter notebook --generate-config
+{% endhighlight %}
+
+Descomentar e configurar o IP Externo que pode ser um `*` para todos os caminhos de acesso ao servidor
+
+
+{% highlight python %}
+c.NotebookApp.ip = '<IP Externo>'
+{% endhighlight %}
+
 ### Spyder
+
+Outra boa opção é o Spyder, com uma interface simples e dedicada para facilitação da execução pelo IPython
 
 
 {% highlight bash %}
 pip install spyder
 {% endhighlight %}
 
+Para abrir o spyder
+
 
 {% highlight bash %}
 spyder3
 {% endhighlight %}
 
-Para alterar o tema \'Ferramentas > Preferências > Sintaxe colorida\' selecionar em **Esquema** o que mais lhe agradar, recomendo o \'Zenbrun\'
+Para alterar o tema `Ferramentas > Preferências > Sintaxe colorida` selecionar em `Esquema` o que mais lhe agradar, recomendo o **Zenbrun**
 
-### Scripts 
+### Scripts
 
-Para executar 
+Para executar os comandos `jupyter notebook` e `spyder 3` direito pelo shell a pasta de **Scripts** do Python deve estar mapeada no sistema, caso lembre da pasta de instalação, ela pode ser consulta pelo código no shell do Python
 
 
 {% highlight python %}
@@ -49,4 +74,6 @@ import sys
 os.path.dirname(sys.executable)
 {% endhighlight %}
 
+### Referências 
 
+(Running a notebook server - Jupyter Notebook)[https://jupyter-notebook.readthedocs.io/en/stable/public_server.html]

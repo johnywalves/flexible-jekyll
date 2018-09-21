@@ -9,27 +9,43 @@ output: html_document
 
 
 
-Distribuições Linux possuem uma ou duas versões do Python já embarcadas
+Python é uma linguagem de programação simples e elegante, vem junto com muito amor e facilidade de desenvolvimento, tem até uma poema
 
-### Instalação do Python
+## Instalação do Python
 
-[Python Downloads](https://www.python.org/downloads/) e os caminhos mapeados no sistema operacional, a interface de comando deve responder, apresentando a versão instalada do Python
+##### Windows 
+
+Realizar o donwload em [Python Downloads](https://www.python.org/downloads/) e seguir o passo a passo do instalador, que automaticamente realiza o cadastro dos caminhos nas variáveis de ambiente do Windows
+
+##### Linux
+
+Distribuições Linux possuem uma ou duas versões do Python já embarcadas, que podem ser acessadas com os comandos `python2`, `python3` ou somente `python`, mas o gerenciador de pacotes precisa ser instalado
+
+
+{% highlight bash %}
+apt-get install python-pip # Python 2
+apt-get install python3-pip # Python 3
+{% endhighlight %}
+
+##### Verificar
+
+Após isso a interface de comando (shell do sistema) deve apresentar a versão instalada do Python com o comando
 
 
 {% highlight bash %}
 python --version
 {% endhighlight %}
 
-Na instalação vem junto com o **pip** um gerenciador de pacotes, para verificar a versão use o comando abaixo com importação do repositório [PyPI](https://pypi.org/)
+O gerenciador de pacotes **pip** acessa o repositório [PyPi](https://pypi.org/), para verificar a versão use
 
 
 {% highlight bash %}
 pip -V
 {% endhighlight %}
 
-### Instalação de Pacotes 
+## Gestão de Dependências
 
-O pip oferece uma maneira simples de instalar um pacote
+Após o ambiente instalado podemos gerenciar as dependências de maneira bem simples com o **pip**, como por exemplo instalando um pacote pelo nome com
 
 
 {% highlight bash %}
@@ -42,23 +58,60 @@ Ou desinstalar
 {% highlight bash %}
 pip uninstall <nome_do_pacote>
 {% endhighlight %}
-Para atualizar um pacote atualizado no ambiente do Python, no instalar deve ser usado a diretiva --update, objetos como **pip** e o **setuptools**
+
+Para atualizar as dependências no ambiente do Python, devemos usar instalador com a diretiva --update indicando o download da versão mais nova<br>
+Sendo assim podemos as biliotecas de gestão de pacotes, os **pip**, download do repositório, e o **setuptools**, instalador de bibliotecas, desta maneira
 
 
 {% highlight bash %}
 pip install --upgrade setuptools pip
 {% endhighlight %}
 
-Para facilitar a portalidade e replicação de ambientes podemos exportar as listas de todos os pacotes instalados e suas respectivas versões
+Para facilitar a portalidade e replicação de ambientes podemos exportar a lista dos pacotes instalados e suas respectivas versões
 
 
 {% highlight bash %}
 pip freeze > requirements.txt
 {% endhighlight %}
 
-E posteriormente instalar a lisata completa somente com um comando
+E posteriormente instalar a lista completa somente com um comando
 
 
 {% highlight bash %}
 pip install -r requirements.txt
 {% endhighlight %}
+
+## Poema
+
+Para visualizar o poema basta usar comando no shell do Python
+
+
+{% highlight python %}
+import this 
+{% endhighlight %}
+
+Em uma tradução:
+
+> O Zen do Python, por Tim Peters
+>
+> Bonito é melhor que feio.
+> Explícito é melhor que implícito.
+> Simples é melhor que complexo.
+> Complexo é melhor que complicado.
+> Linear é melhor do que aninhado.
+> Esparso é melhor que denso.
+> Legibilidade conta.
+> Casos especiais não são especiais o bastante para quebrar as regras.
+> Ainda que praticidade vença a pureza.
+> Erros nunca devem passar silenciosamente.
+> A menos que sejam explicitamente silenciados.
+> Diante da ambigüidade, recuse a tentação de adivinhar.
+> Deveria haver um — e preferencialmente só um — modo óbvio para fazer algo.
+> Embora esse modo possa não ser óbvio a princípio a menos que você seja holandês.
+> Agora é melhor que nunca.
+> Embora nunca freqüentemente seja melhor que já.
+> Se a implementação é difícil de explicar, é uma má idéia.
+> Se a implementação é fácil de explicar, pode ser uma boa idéia.
+> Namespaces são uma grande idéia — vamos ter mais dessas!
+
+Eu disse que tem muito amor no Python

@@ -11,9 +11,35 @@ output: html_document
 
 
 
+{% highlight bash %}
+pip install sqlalchemy
+{% endhighlight %}
+
 
 {% highlight python %}
+engine = create_engine('sqlite:///mydb.db', poolclass=SingletonThreadPool)
+{% endhighlight %}
 
+
+{% highlight python %}
+Base.metadata.create_all(engine)
+
+Session = sessionmaker(bind=engine)
+session = Session()
+{% endhighlight %}
+
+
+{% highlight python %}
+class User(Base):
+
+    __tablename__ = 'users'
+
+    id          =   Column(Integer, primary_key=True)
+    user        =   Column(String(50), nullable=False)
+    password    =   Column(String(50), nullable=False)    
+
+    def __repr__(self):
+        return "<User (user='%d')>" % (self.user)
 {% endhighlight %}
 
 ### Referências 

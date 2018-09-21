@@ -6,13 +6,15 @@ tags: [Visualização, R]
 img: kill-bill-1.jpg
 output: html_document
 ---
-Quando estava aprendendo o básico da **Linguagem R** e o **R Studio** em uma workshop do Igor Alcantara, ele disponibilizou algumas bases de dados dentre eles com ofecenças e mortes em filmes do Quentin Tarantino. Brincando um pouco a base encontrei uma lista de mortes em ambos volumes de Kill Bill
+
+Quando estava aprendendo o básico da **Linguagem R** e o **R Studio** em uma workshop do Igor Alcantara, ele disponibilizou algumas bases de dados dentre eles com ofecenças e mortes em filmes do Quentin Tarantino.<br> 
+Brincando um pouco a base encontrei uma lista de mortes em ambos volumes de Kill Bill e ocorre alguns montes
 
 
 
-### Ambiente
+### Ambiente e Dados 
 
-Para preparar o ambiente informei o diretório de trabalho indicado pelo **"."** e limpei todas as variáveis de ambiente após pesquisar todas pelo *list = ls()*
+Para preparar o ambiente informei o diretório de trabalho indicado pelo *"."* e limpei todas as variáveis de ambiente após pesquisar todas pelo *list = ls()*
 
 
 {% highlight r %}
@@ -20,10 +22,11 @@ setwd(".")
 rm(list = ls())
 {% endhighlight %}
 
-Carreguei a bilbioteca do *tidyverse* pois contém a *ggplot2*, geração de gráfico, e a *dplyr*, filtros de dados
+Carreguei a bilbioteca do *tidyverse* pois contém a *ggplot2*, geração de gráfico, e a *dplyr*, consulta para manipulação de dados
 
 
 {% highlight r %}
+# Instalar caso necessário com o comando: install.packages('tidyverse')
 library('tidyverse')
 {% endhighlight %}
 
@@ -31,7 +34,9 @@ Carregando os dados através do *csv* na pasta e a visualização proporcionou u
 
 
 {% highlight r %}
+# Carregar os dados do arquivo csv
 tarantino <- read.csv('tarantino.csv')
+# Visualizar os primeiros registros do data.frame
 head(tarantino)
 {% endhighlight %}
 
@@ -51,7 +56,7 @@ Os dados estão organizados com os nomes dos filmes, acontecimento de tempo em m
 
 ### Organização
 
-Somente me interessa os dados de mortes dos volumes 1 e 2 de Kill Bill, com *dplyr* apliquei um filtro
+Somente me interessa os dados de mortes dos volumes 1 e 2 de Kill Bill, um consulta um filtro usuando a bibliote *dplyr* que faz parte da *tidyverse*, apliquei um filtro pelo nome do Filme e tipo de evento
 
 
 {% highlight r %}
@@ -68,8 +73,8 @@ qtdMortes <- nrow(as.data.frame(mortes$minutes_in))
 mortes$qtd <- seq(1, qtdMortes)
 {% endhighlight %}
 
-Adicionei de 112 minutos antes do segundo para duração do primeiro volume acrescido de um minuto.<br/>
-Fonte da duração <https://www.imdb.com/title/tt0266697/>
+Adicionei de 112 minutos antes do segundo para duração do primeiro volume acrescido de um minuto.<br>
+Fonte da duração [Página do IMDb sobre Kill Bill: Volume 1](https://www.imdb.com/title/tt0266697/)
 
 
 {% highlight r %}
@@ -79,11 +84,12 @@ mortes[(mortes$movie == 'Kill Bill: Vol. 2'),]$minutes_in <-
 
 ### Visualização
 
-Com os dados organaizados, o uso do *ggplot2* com os comandos:<br/>
-*labs* Legendas do gráfico<br/>
-*geom_point* Visualização dos dados por pontos<br/>
-*geom_segment* Linha vermelha para separar o momento entre os dois filmes<br/>
-*theme_minimal* Interface com mínimo de recursos
+Com os dados organaizados, o uso do *ggplot2* com os comandos:<br>
+	* **labs** Legendas do gráfico<br>
+	* **geom_point** Visualização dos dados por pontos<br>
+	* **geom_segment** Linha vermelha para separar o momento entre os dois filmes<br>
+	* **theme_minimal** Interface com mínimo de recursos<br>
+Guardando na variável \`graph\` para usarmos depois e expondo ela
 
 
 {% highlight r %}
@@ -101,7 +107,7 @@ graph
 
 ![plot of chunk KillBillDeath](/./assets/Rfig/KillBillDeath-1.svg)
 
-Por final, gerei o arquivo para visualização futura e divulgação no site
+Por final, gerei o arquivo com as informações na variável \`graph\` para visualização futura e divulgação no site
 
 
 {% highlight r %}
