@@ -89,7 +89,7 @@ Com os dados organaizados, o uso do *ggplot2* com os comandos:<br>
 	* **geom_point** Visualização dos dados por pontos<br>
 	* **geom_segment** Linha vermelha para separar o momento entre os dois filmes<br>
 	* **theme_minimal** Interface com mínimo de recursos<br>
-Guardando na variável \`graph\` para usarmos depois e expondo ela
+Guardando na variável `graph` para usarmos depois e expondo ela
 
 
 {% highlight r %}
@@ -107,7 +107,7 @@ graph
 
 ![plot of chunk KillBillDeath](/./assets/Rfig/KillBillDeath-1.svg)
 
-Por final, gerei o arquivo com as informações na variável \`graph\` para visualização futura e divulgação no site
+Por final, gerei o arquivo com as informações na variável `graph` para visualização futura e divulgação no site
 
 
 {% highlight r %}

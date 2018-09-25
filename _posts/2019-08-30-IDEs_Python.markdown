@@ -76,4 +76,4 @@ os.path.dirname(sys.executable)
 
 ### Referências 
 
-(Running a notebook server - Jupyter Notebook)[https://jupyter-notebook.readthedocs.io/en/stable/public_server.html]
+[Running a notebook server - Jupyter Notebook](https://jupyter-notebook.readthedocs.io/en/stable/public_server.html)

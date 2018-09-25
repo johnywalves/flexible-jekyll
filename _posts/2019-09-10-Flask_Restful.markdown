@@ -39,7 +39,7 @@ pipenv install flask flask-restful flask-jwt-extended passlib
 ## Servidor  
 
 O pacote do **Flask** possibilita escutar uma porta para garantir uma aplicação *Web*<br>
-Criar um arquivo \`app.py\` com o conteúdo abaixo
+Criar um arquivo `app.py` com o conteúdo abaixo
 
 
 {% highlight python %}
@@ -190,7 +190,7 @@ post('http://localhost:5000/v1.0/posts').json()
 {% endhighlight %}
 
 
-\`Missing Authorization Header\`
+`Missing Authorization Header`
 
 
 {% highlight python %}
