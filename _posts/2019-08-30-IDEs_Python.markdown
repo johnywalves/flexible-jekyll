@@ -2,7 +2,7 @@
 layout: post
 title: "IDEs Python (Jupyter e Spyder)"
 date: 2018-08-30 13:32:48 -0300
-tags: [Ambiente, Python]
+tags: [Ambiente, Python, Jupyter, Spyder]
 img: jupiter-1.jpg
 output: html_document      
 ---
@@ -27,22 +27,6 @@ Para executar o jupyter e já abrir o navegador, o comando deve ser executado na
 
 {% highlight bash %}
 jupyter notebook
-{% endhighlight %}
-
-#### Acesso externo
-
-Para usar o notebook em um servidor é necessário alterar o arquivo de configuração, que pode ser gerado pelo comando
-
-
-{% highlight bash %}
-jupyter notebook --generate-config
-{% endhighlight %}
-
-Descomentar e configurar o IP Externo que pode ser um `*` para todos os caminhos de acesso ao servidor
-
-
-{% highlight python %}
-c.NotebookApp.ip = '<IP Externo>'
 {% endhighlight %}
 
 ### Spyder
@@ -73,7 +57,3 @@ import os
 import sys
 os.path.dirname(sys.executable)
 {% endhighlight %}
-
-### Referências 
-
-[Running a notebook server - Jupyter Notebook](https://jupyter-notebook.readthedocs.io/en/stable/public_server.html)

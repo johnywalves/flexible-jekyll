@@ -9,6 +9,7 @@ output: html_document
 
 
 
+Instalar o pacote do SQLAlchemy pelo repositório
 
 
 {% highlight bash %}

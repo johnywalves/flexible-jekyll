@@ -10,7 +10,7 @@ output: html_document
 
 
 A vantagem de utilizar uma Web API para garantir o acesso e manipulação de dados de uma aplicação possibilita controlar a disponibilidade, segurança e formato dos dados<br>
-Fazendo uso do Python, Flask, JSON, REST, JWT, Criptografia Hash podemos entregar de maneira fácil e rápida essa API 
+Fazendo uso de alguns pacotes Python para controlar as Requisições/Respostas, JSON, REST, JWT e Criptografia Hash podemos entregar de maneira fácil e rápida essa API
 
 ## Ambiente
 
@@ -39,7 +39,7 @@ pipenv install flask flask-restful flask-jwt-extended passlib
 ## Servidor  
 
 O pacote do **Flask** possibilita escutar uma porta para garantir uma aplicação *Web*<br>
-Criar um arquivo `app.py` com o conteúdo abaixo
+Criar um arquivo **app.py** com o conteúdo abaixo, esse nome é um dos padrões do Flask aconselhavél seu uso
 
 
 {% highlight python %}
@@ -68,12 +68,16 @@ Acessando pelo navegador o endereço [http://localhost:5000/](http://localhost:5
 
 ## REST
 
+De forma simplicitada uma REST faz referência a um CRUD
+
 |	Operações	|	Descrição	|
 |---|---|
-|	POST		|	Inserir uma informação nova	|
-|	PUT			|	Atualizar	|
-|	GET			| Consultar o registro |
-|	DELETE		|	Deletar	|
+|	POST		|	(CREATE) Inserir novas instâncias	|
+|	GET			| (READ) Consultar instâncias  	|
+|	PUT			|	(UPDATE) Atualizar as informações de uma ou várias instâncias	|
+|	DELETE		|	(DELETE) Deletar uma instância 	|
+
+Vamos adicionar 
 
 
 {% highlight python %}
@@ -85,11 +89,11 @@ class response(Resource):
 	def post(self):
 		return {'post':'Resposta de POST'}
 
-	def put(self):
-		return {'put':'Resposta de PUT'}				
-		
 	def get(self):
 		return {'get':'Resposta de GET'}
+		
+	def put(self):
+		return {'put':'Resposta de PUT'}				
 		
 	def delete(self):
 		return {'delete':'Resposta de DELETE'}
@@ -189,7 +193,6 @@ post('http://localhost:5000/v1.0/posts').json()
 # {'message': 'Internal Server Error'} 
 {% endhighlight %}
 
-
 `Missing Authorization Header`
 
 
@@ -227,6 +230,8 @@ post('http://localhost:5000/v1.0/posts', headers=headers).json()
 
 ### Criptografia Hash 
 
+Usando como exemplo um cadastro com um usuário "admin" e senha "123", devemos criptografar a senha 
+
 
 {% highlight python %}
 from passlib.hash import pbkdf2_sha256 as sha256
@@ -240,7 +245,11 @@ sha256.hash('123')
 if (('admin' == data['user']) & sha256.verify(data['pass'], '$pbkdf2-sha256$29000$mzNmjJHSWuudE8KYU8q59w$HLyrrchxVmTINur6OJ5LxQP8Rma2lWpDveHCzVa7iKQ')):
 {% endhighlight %}
 
+Claro que este trecho funciona melhor com uma base de dados consultando o nome do usuário e a senha hash armazenada
+
 ### Compilando
+
+Para facilitar o código completo gerado nas etapas anteriores que devem conter no *app.py* para rodar com o \'flask run\'
 
 
 {% highlight python %}

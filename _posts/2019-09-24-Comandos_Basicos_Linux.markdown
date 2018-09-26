@@ -2,32 +2,30 @@
 layout: post
 title: "Comandos Básicos Linux para Consulta"
 date: 2018-09-24 22:17:00 -0300
-tags: [Linux, Bash]
-img: 
+tags: [Linux, Bash, Shell]
+img: pinguim-1.jpg
 output: html_document      
 ---
 
 
+
+#### Tópicos
+
+* [Arquivos e Diretórios](#ambiente)
+* [CRON](#cron)
+* [Serviços](#servicos)
+
 ## Arquivos e Diretórios
 
-#### Excluir
+* Listar conteúdo da pasta `ls`
+* Mover ou renomear arquivo `mv <caminho de origem> <caminho de destino>`
+* Excluir arquivo `rm <nome do arquivo>`
+* Excluir diretório `rm -r <nome do diretório>`
+* Ler conteúdo de um arquivo `cat <nome do arquivo>`
 
+## Comandos 
 
-{% highlight bash %}
-rm <nome do arquivo>
-{% endhighlight %}
-
-
-{% highlight bash %}
-rm -r <nome do diretório>
-{% endhighlight %}
-
-#### Ler o conteúdo de um arquivo
-
-
-{% highlight bash %}
-cat <nome do diretório>
-{% endhighlight %}
+`which <nome no comando>`
 
 ## CRON
 
@@ -48,3 +46,8 @@ Executar as atividades o @reload
 {% highlight bash %}
 service cron reload
 {% endhighlight %}
+
+## Serviços 
+
+
+systemctl

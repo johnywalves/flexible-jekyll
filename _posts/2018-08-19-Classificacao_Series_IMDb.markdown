@@ -230,12 +230,12 @@ print(melhoresSeries)
 
 {% highlight text %}
 ##            tconst             primaryTitle parentTconst averageRating
-## 381214  tt0396991                 LazyTown    tt0396991     10.000000
-## 2535133 tt2973110         BK Comedy Series    tt2973110     10.000000
-## 386084  tt0401969      Playing It Straight    tt0401969      9.975000
-## 3213875 tt4517806            Furusato-Time    tt4517806      9.950000
-## 2332879 tt2487370 Whose Line Is It Anyway?    tt2487370      9.947059
-## 183451  tt0190196  Romper Room and Friends    tt0190196      9.900000
+## 381205  tt0396991                 LazyTown    tt0396991     10.000000
+## 2535041 tt2973110         BK Comedy Series    tt2973110     10.000000
+## 386075  tt0401969      Playing It Straight    tt0401969      9.975000
+## 3213744 tt4517806            Furusato-Time    tt4517806      9.950000
+## 2332791 tt2487370 Whose Line Is It Anyway?    tt2487370      9.947059
+## 183448  tt0190196  Romper Room and Friends    tt0190196      9.900000
 {% endhighlight %}
 
 Mas tudo isso pode significar nada, pois embora não tenha 
