@@ -18,7 +18,7 @@ jupyter notebook --generate-config
 
 #### Acesso externo
 
-Descomentar e configurar o IP Externo que pode ser um `*` para todos os caminhos de acesso ao servidor
+Descomentar e configurar o IP Externo que pode ser um \`*\` para todos os caminhos de acesso ao servidor
 
 
 {% highlight python %}

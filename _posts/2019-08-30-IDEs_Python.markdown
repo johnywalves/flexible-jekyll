@@ -15,7 +15,7 @@ Uma ótima pedida é [Microsoft Visual Code](https://code.visualstudio.com/) que
 
 ### Jupyter Notebook
 
-Uma interface notebook executando direto no navegador, facilmente instalada pelo `pip` do **PyPI**
+Uma interface notebook executando direto no navegador, facilmente instalada pelo \`pip\` do **PyPI**
 
 
 {% highlight bash %}
@@ -45,11 +45,11 @@ Para abrir o spyder
 spyder3
 {% endhighlight %}
 
-Para alterar o tema `Ferramentas > Preferências > Sintaxe colorida` selecionar em `Esquema` o que mais lhe agradar, recomendo o **Zenbrun**
+Para alterar o tema \`Ferramentas > Preferências > Sintaxe colorida\` selecionar em \`Esquema\` o que mais lhe agradar, recomendo o **Zenbrun**
 
 ### Scripts
 
-Para executar os comandos `jupyter notebook` e `spyder 3` direito pelo shell a pasta de **Scripts** do Python deve estar mapeada no sistema, caso lembre da pasta de instalação, ela pode ser consulta pelo código no shell do Python
+Para executar os comandos \`jupyter notebook\` e \`spyder 3\` direito pelo shell a pasta de **Scripts** do Python deve estar mapeada no sistema, caso lembre da pasta de instalação, ela pode ser consulta pelo código no shell do Python
 
 
 {% highlight python %}

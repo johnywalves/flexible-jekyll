@@ -14,7 +14,7 @@ Fazendo uso de alguns pacotes Python para controlar as Requisições/Respostas, 
 
 ## Ambiente
 
-Instalar o **pipenv** para viabilizar o uso de um ambiente virtual ((Virtual Environment)[../Virtual_Environment])
+Usando um ambiente virtual para facilitar o controle de dependências do projeto, detalhamento disponível em ((Virtual Environment)[../Virtual_Environment])
 
 
 {% highlight bash %}
@@ -39,7 +39,7 @@ pipenv install flask flask-restful flask-jwt-extended passlib
 ## Servidor  
 
 O pacote do **Flask** possibilita escutar uma porta para garantir uma aplicação *Web*<br>
-Criar um arquivo **app.py** com o conteúdo abaixo, esse nome é um dos padrões do Flask aconselhavél seu uso
+Criar um arquivo **app.py** com o conteúdo abaixo, esse nome é um dos padrões do Flask, aconselhavél seu uso
 
 
 {% highlight python %}
@@ -57,7 +57,8 @@ if __name__ == '__main__':
     app.run(host='0.0.0.0', port=port)
 {% endhighlight %}
 
-Com o arquivo na 
+Como pode ser visto ele está importando a biblioteca **Flask**, escutando a porta 5000 e retornando o texto 'Uma resposta flask'<br>
+Assim podemos executar o aplicativo com o comando
 
 
 {% highlight bash %}
@@ -68,7 +69,7 @@ Acessando pelo navegador o endereço [http://localhost:5000/](http://localhost:5
 
 ## REST
 
-De forma simplicitada uma REST faz referência a um CRUD
+De forma simplicitada uma REST faz referência a um CRUD através de requisições HTTP, onde o servidor e cliente possui uma comunicação completa sem a necessidade de armazenar informações
 
 |	Operações	|	Descrição	|
 |---|---|
@@ -77,7 +78,7 @@ De forma simplicitada uma REST faz referência a um CRUD
 |	PUT			|	(UPDATE) Atualizar as informações de uma ou várias instâncias	|
 |	DELETE		|	(DELETE) Deletar uma instância 	|
 
-Vamos adicionar 
+Vamos adicionar um nível de detalhamento com os métodos de requisição HTTP  
 
 
 {% highlight python %}
@@ -101,17 +102,22 @@ class response(Resource):
 api.add_resource(response, '/response')
 {% endhighlight %}
 
-Para testar a execução podemos utiliza o [PostMan](https://www.getpostman.com/) ou pelo pacote request do Python 
+Para testar a execução podemos utiliza o [PostMan](https://www.getpostman.com/) ou pelo pacote **request** do Python<br>
+Vamos instalar o **requests** pelo PyPi 
 
 
 {% highlight bash %}
 pip install requests
 {% endhighlight %}
 
+Através do shell do Python, acessado pelo comando \`python\` no shell do sistema, carregamos os objetos para cada tipo de requisição
+
 
 {% highlight python %}
 from requests import put, get, post, delete
 {% endhighlight %}
+
+De maneira simples podemos fazer as requisições, com a função \`.json()\` forçando uma resposta em json
 
 
 {% highlight python %}
@@ -129,6 +135,8 @@ delete('http://localhost:5000/response').json()
 {% endhighlight %}
 
 ## JSON
+
+
 
 
 {% highlight js %}
@@ -193,7 +201,7 @@ post('http://localhost:5000/v1.0/posts').json()
 # {'message': 'Internal Server Error'} 
 {% endhighlight %}
 
-`Missing Authorization Header`
+\`Missing Authorization Header\`
 
 
 {% highlight python %}

@@ -19,7 +19,7 @@ Realizar o donwload em [Python Downloads](https://www.python.org/downloads/) e s
 
 ##### Linux
 
-Distribuições Linux possuem uma ou duas versões do Python já embarcadas, que podem ser acessadas com os comandos `python2`, `python3` ou somente `python`, mas o gerenciador de pacotes precisa ser instalado
+Distribuições Linux possuem uma ou duas versões do Python já embarcadas, que podem ser acessadas com os comandos \`python2\`, \`python3\` ou somente \`python\`, mas o gerenciador de pacotes precisa ser instalado
 
 
 {% highlight bash %}
