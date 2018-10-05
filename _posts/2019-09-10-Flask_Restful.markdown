@@ -110,14 +110,14 @@ Vamos instalar o **requests** pelo PyPi
 pip install requests
 {% endhighlight %}
 
-Através do shell do Python, acessado pelo comando \`python\` no shell do sistema, carregamos os objetos para cada tipo de requisição
+Através do shell do Python, acessado pelo comando `python` no shell do sistema, carregamos os objetos para cada tipo de requisição
 
 
 {% highlight python %}
 from requests import put, get, post, delete
 {% endhighlight %}
 
-De maneira simples podemos fazer as requisições, com a função \`.json()\` forçando uma resposta em json
+De maneira simples podemos fazer as requisições, com a função `.json()` forçando uma resposta em json
 
 
 {% highlight python %}
@@ -201,7 +201,7 @@ post('http://localhost:5000/v1.0/posts').json()
 # {'message': 'Internal Server Error'} 
 {% endhighlight %}
 
-\`Missing Authorization Header\`
+`Missing Authorization Header`
 
 
 {% highlight python %}

@@ -32,7 +32,7 @@ Para criar um ambiente virtual, usando a versão instalada e configurada como pa
 pipenv install 
 {% endhighlight %}
 
-Ou podemos definir uma versão com a diretiva \`--python\`
+Ou podemos definir uma versão com a diretiva `--python`
 
 
 {% highlight bash %}
@@ -91,7 +91,7 @@ if __name__ == '__main__':
 
 ## Execução
 
-Para executar a aplicação em ambiente virtual, podemos executar a chamada \`flask run\` pelo shell 
+Para executar a aplicação em ambiente virtual, podemos executar a chamada `flask run` pelo shell 
 
 
 {% highlight bash %}
