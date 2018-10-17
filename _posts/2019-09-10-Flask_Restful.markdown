@@ -14,7 +14,7 @@ Fazendo uso de alguns pacotes Python para controlar as Requisições/Respostas, 
 
 ## Ambiente
 
-Usando um ambiente virtual para facilitar o controle de dependências do projeto, detalhamento disponível em ((Virtual Environment)[../Virtual_Environment])
+Usando um ambiente virtual para facilitar o controle de dependências do projeto, detalhamento disponível em [Virtual Environment](../Virtual_Environment)
 
 
 {% highlight bash %}

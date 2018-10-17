@@ -11,9 +11,9 @@ output: html_document
 
 #### Tópicos
 
-[Arquivos e Diretórios](#ambiente)
-[Redes](#redes)
-[CRON](#cron)
+[Arquivos e Diretórios](#ambiente)<br/>
+[Redes](#redes)<br/>
+[CRON](#cron)<br/>
 [Serviços](#serviços)
 
 ## Arquivos e Diretórios
