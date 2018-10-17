@@ -18,35 +18,27 @@ output: html_document
 
 ## Arquivos e Diretórios
 
-* Listar conteúdo da pasta `ls`
-* Mover ou renomear arquivo `mv <caminho de origem> <caminho de destino>`
-* Excluir arquivo `rm <nome do arquivo>`
-* Excluir diretório `rm -r <nome do diretório>`
-* Ler conteúdo de um arquivo `cat <nome do arquivo>`
+* Listar conteúdo da pasta: `ls`
+* Mover ou renomear arquivo: `mv <caminho de origem> <caminho de destino>`
+* Excluir arquivo: `rm <nome do arquivo>`
+* Excluir diretório: `rm -r <nome do diretório>`
+* Ler conteúdo de um arquivo: `cat <nome do arquivo>`
 
 ## Redes
 
-* Visualizar IP da máquina `ip addr show`
+* Visualizar IP da máquina: `ip addr show`
 
-## Comandos 
+## Comandos
 
-`which <nome no comando>`
+* Visualizar pasta de instalação de um comando: `which <nome no comando>`
 
 ## CRON
 
-Ver conteúdo do CRON
+* Ver conteúdo do CRON: `crontab -l`
+* Editar conteúdo do CRON: `crontab -e`
 
-{% highlight bash %}
-crontab -l
-{% endhighlight %}
+Executar as atividades do @reload
 
-Editar conteúdo do CRON
-
-{% highlight bash %}
-crontab -e
-{% endhighlight %}
-
-Executar as atividades o @reload
 
 {% highlight bash %}
 service cron reload

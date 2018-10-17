@@ -114,4 +114,5 @@ Em uma tradução:
 > Se a implementação é fácil de explicar, pode ser uma boa idéia.<br>
 > Namespaces são uma grande idéia — vamos ter mais dessas!<br>
 <br>
+
 Eu disse que tem muito amor no Python

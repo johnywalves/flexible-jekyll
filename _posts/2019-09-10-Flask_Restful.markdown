@@ -136,7 +136,8 @@ delete('http://localhost:5000/response').json()
 
 ## JSON
 
-
+JSON uma notação de objetos projetada para o JavaScript, por sua facilitada foi a adotada largamente para armazenar e trafegar documentos estruturados e sem esquemas<br/> 
+Por exemplo um trecho de uma receita de bolo
 
 
 {% highlight js %}
@@ -153,6 +154,7 @@ delete('http://localhost:5000/response').json()
 }
 {% endhighlight %}
 
+Usado o Flask podemos ler os dados contidos no corpo do JSON e imprimir no servidor 
 
 
 {% highlight python %}
@@ -172,6 +174,8 @@ class readJSON(Resource):
 api.add_resource(readJSON, '/readjson')
 {% endhighlight %}
 
+Testando com a biblioteca do requests 
+
 
 {% highlight python %}
 post('http://localhost:5000/readjson', json={'name':'cake', 'categories':[{'name':'sweet'}, {'name':'wheat'}], 'steps':[{'ingredient':'sugar'}, {'ingredient':'flour'}]}).json()
@@ -185,6 +189,10 @@ post('http://localhost:5000/readjson', json={'name':'cake', 'categories':[{'name
 
 ## Token
 
+Na definição de **token** temos símbolo, marca ou sinal, uma maneira de garantir um acesso a algo ao mostrar<br>
+Podemos limitar o acesso de algumas áreas da API exigindo a apresentação de um token, esse podendo ser concedido somente em certos aspectos por exemplo com o uso de um usuário e senha<br> 
+No trecho abaixo importamos o pacote **flask_jwt_extended** do **jwt_extended** e com `@jwt_required` limitamos o acesso ao método POST
+
 
 {% highlight python %}
 from flask_jwt_extended import jwt_required
@@ -195,13 +203,16 @@ class response(Resource):
 		return {'post':'Resposta de POST'}
 {% endhighlight %}
 
+Como resultado ao realizar a requisição POST sem o token, o sistema bloqueia com o erro interno `Missing Authorization Header`
+
 
 {% highlight python %}
 post('http://localhost:5000/v1.0/posts').json()
 # {'message': 'Internal Server Error'} 
 {% endhighlight %}
 
-`Missing Authorization Header`
+Para disponibilizar o token usamos a chave secreta 'Chave-Secreta-JWT', cada sistema deve ter a sua própria<br>
+Podemos saber quem realizou a requisição usando o comando `get_jwt_identity()` para ler a identidade do usuário, mas antes precisamos gerar o token com essa identidade pelo `create_access_token`
 
 
 {% highlight python %}
@@ -222,12 +233,15 @@ class token(Resource):
 			return {}
 {% endhighlight %}
 
+Com o trecho implantado, conseguimos acesso ao token com com um GET, informando o "user" e "pass" como "admin" e "123" respectivamente 
 
 
 {% highlight python %}
 get('http://localhost:5000/token', json={'user':'admin', 'pass':'123'}).json()
 # {'token': '<token gerado>'}
 {% endhighlight %}
+
+A API retorna o token, uma sequência de caracteres que deve ser usada no header como uma autenticação Bearer, fazendo uso do pacote request novamente temos acesso ao POST da API
 
 
 {% highlight python %}
@@ -238,26 +252,28 @@ post('http://localhost:5000/v1.0/posts', headers=headers).json()
 
 ### Criptografia Hash 
 
-Usando como exemplo um cadastro com um usuário "admin" e senha "123", devemos criptografar a senha 
+No trecho anterior usamos como exemplo o usuário "admin" e senha "123", mas uma boa prática é evitar o uso de Text Plain para senhas uma ótima maneira é descaracterizar o conteúdo, com uma função hash 
 
 
 {% highlight python %}
 from passlib.hash import pbkdf2_sha256 as sha256
 sha256.hash('123')
-# $pbkdf2-sha256$29000$mzNmjJHSWuudE8KYU8q59w$HLyrrchxVmTINur6OJ5LxQP8Rma2lWpDveHCzVa7iKQ
+# <Sequência de caracteres Hash>
 {% endhighlight %}
 
+Alterando a validação de usuário e senha, substituindo o retorno do da função anterior em "<Sequência de caracteres Hash>" 
 
 
 {% highlight python %}
-if (('admin' == data['user']) & sha256.verify(data['pass'], '$pbkdf2-sha256$29000$mzNmjJHSWuudE8KYU8q59w$HLyrrchxVmTINur6OJ5LxQP8Rma2lWpDveHCzVa7iKQ')):
+if (('admin' == data['user']) & sha256.verify(data['pass'], '<Sequência de caracteres Hash>')):
 {% endhighlight %}
 
 Claro que este trecho funciona melhor com uma base de dados consultando o nome do usuário e a senha hash armazenada
 
 ### Compilando
 
-Para facilitar o código completo gerado nas etapas anteriores que devem conter no *app.py* para rodar com o \'flask run\'
+Para facilitar o código completo gerado nas etapas anteriores que devem conter no *app.py* para rodar com o \'flask run\'<br>
+Não esquencendo de alterar a 'Chave-Secreta-JWT' para sua chave particular
 
 
 {% highlight python %}
@@ -331,4 +347,3 @@ if __name__ == '__main__':
 [Flask - Configuration Handling](http://flask.pocoo.org/docs/1.0/config/)<br>
 [Flask-RESTful - Quickstart](https://flask-restful.readthedocs.io/en/latest/quickstart.html)<br>
 [JWT authorization in Flask](https://codeburst.io/jwt-authorization-in-flask-c63c1acf4eeb)
-
