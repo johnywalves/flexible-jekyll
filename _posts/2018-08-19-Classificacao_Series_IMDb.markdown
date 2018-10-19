@@ -68,7 +68,7 @@ meanRating <- aggregate(averageRating ~ parentTconst, meanRating, mean)
 meanRating <- meanRating[order(-meanRating$averageRating),]
 {% endhighlight %}
 
-[Curva ABC](https://pt.wikipedia.org/wiki/Curva_ABC) 
+Separando as séries pela classificação pela [Curva ABC](https://pt.wikipedia.org/wiki/Curva_ABC) onde a proporção de 20%, 30%, 50% dos melhores
 
 
 {% highlight r %}
@@ -80,7 +80,7 @@ mediaCurvaB <- mean(meanRating[limitA:limitB,]$averageRating)
 mediaCurvaC <- mean(meanRating[limitB:nrow,]$averageRating)
 {% endhighlight %}
 
-Para fins de exemplo foi escolhi o [My Little Poney: Friendship is Magic](https://www.imdb.com/title/tt1751105/) com o código   **tt1751105**
+Para fins de exemplo foi escolhi o [My Little Poney: Friendship is Magic](https://www.imdb.com/title/tt1751105/) com o código **tt1751105**, por quê? Me pareceu divertido
 
 
 {% highlight r %}
@@ -92,7 +92,7 @@ mediaSerie <- meanRating[meanRating$parentTconst == codSerie,]$averageRating
 episodeRatingSerie = episodeRating[episodeRating$parentTconst == codSerie, -5]
 {% endhighlight %}
 
-Tratar 
+Tratar os dados organizando gerando um número sequencial de episódios (Ex. "0102" segunda a primeira temporada, "0312" décimo segundo da terceira temporada) e ordenando pela sequência
 
 
 {% highlight r %}
@@ -107,7 +107,7 @@ episodeRatingSerie <- episodeRatingSerie[order(episodeRatingSerie$episode),]
 episodeRatingSerie$ordemEpisode <- seq(1,nrow(episodeRatingSerie))
 {% endhighlight %}
 
-
+Gerar e visualizar as classificações geradas 
 
 
 {% highlight r %}
@@ -125,6 +125,9 @@ ggplot(episodeRatingSerie, aes(x = ordemEpisode, y = averageRating)) +
 
 ![plot of chunk serie](/./assets/Rfig/serie-1.svg)
 
+#### Inclusão de comparações 
+
+Gerar um *data frame* com a média por temporada de todas as séries
 
 
 {% highlight r %}
@@ -134,7 +137,7 @@ mediaTemporada$Category = as.integer(mediaTemporada$Category)
 colnames(mediaTemporada) <- c('seasonNumber', 'averageRating')
 {% endhighlight %}
 
-
+Gerar e visualizar as comparações geradas
 
 
 {% highlight r %}
@@ -190,6 +193,8 @@ codSeries <- c('tt0407362', 'tt0903747', 'tt0944947', 'tt0411008', 'tt0141842')
 {% endhighlight %}
 
 
+
+
 {% highlight r %}
 # Carregar pontuação da série
 grupoSeries <- episodeRating[episodeRating$parentTconst %in% codSeries,]
@@ -238,4 +243,4 @@ print(melhoresSeries)
 ## 183448  tt0190196  Romper Room and Friends    tt0190196      9.900000
 {% endhighlight %}
 
-Mas tudo isso pode significar nada, pois embora não tenha 
+Mas tudo isso pode significar nada, por essas classificações esta é a melhor série já produzida

@@ -18,24 +18,74 @@ output: html_document
 
 ## Arquivos e Diretórios
 
-* Listar conteúdo da pasta: `ls`
-* Mover ou renomear arquivo: `mv <caminho de origem> <caminho de destino>`
-* Excluir arquivo: `rm <nome do arquivo>`
-* Excluir diretório: `rm -r <nome do diretório>`
-* Ler conteúdo de um arquivo: `cat <nome do arquivo>`
+Listar conteúdo da pasta
+
+
+{% highlight bash %}
+ls
+{% endhighlight %}
+
+Mover ou renomear arquivo
+
+
+{% highlight bash %}
+mv <caminho de origem> <caminho de destino>
+{% endhighlight %}
+
+Excluir arquivo
+
+
+{% highlight bash %}
+rm <nome do arquivo>
+{% endhighlight %}
+
+Excluir diretório
+
+
+{% highlight bash %}
+rm -r <nome do diretório>
+{% endhighlight %}
+
+Ler conteúdo de um arquivo
+
+
+{% highlight bash %}
+cat <nome do arquivo>
+{% endhighlight %}
 
 ## Redes
 
-* Visualizar IP da máquina: `ip addr show`
+Visualizar IP da máquina
 
-## Comandos
 
-* Visualizar pasta de instalação de um comando: `which <nome no comando>`
+{% highlight bash %}
+ip addr show
+{% endhighlight %}
+
+## Compreeender Ambiente
+
+Visualizar pasta de instalação de um comando
+
+
+{% highlight bash %}
+which <nome no comando>
+{% endhighlight %}
 
 ## CRON
 
-* Ver conteúdo do CRON: `crontab -l`
-* Editar conteúdo do CRON: `crontab -e`
+Ver conteúdo do CRON
+
+
+{% highlight bash %}
+crontab -l
+{% endhighlight %}
+
+Editar conteúdo do CRON
+
+
+{% highlight bash %}
+crontab -e
+{% endhighlight %}
 
 Executar as atividades do @reload
 
@@ -47,4 +97,6 @@ service cron reload
 ## Serviços 
 
 
+{% highlight bash %}
 systemctl
+{% endhighlight %}
