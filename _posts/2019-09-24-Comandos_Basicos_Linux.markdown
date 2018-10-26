@@ -9,6 +9,11 @@ output: html_document
 
 
 
+# Comandos Básicos Linux 
+
+Recentemente me deparei com a necessidade de aprender a lidar com o linux, sem uma interface gráfica, amei<br>
+Dentro do uso com o shell do Linux para mim foi a dificuldade de memorizar os comandos, então criei um guia pequeno para consultar constantemente
+
 #### Tópicos
 
 [Arquivos e Diretórios](#ambiente)<br/>
