@@ -3,13 +3,9 @@ layout: post
 title: "Controle da evolução corporal (Peso)"
 date: 2018-10-25 20:33:15 -0300
 tags: [Python, Visualização]
-img: python-1.jpg
+img: balance-1.jpg
 output: html_document      
 ---
-
-
-
-# Controle da evolução corporal (Peso)
 
 Sempre tive um barriguinha redonda, na minha guerra constante resolvi usar um pouco de ciência de dados para ajudar em mais uma batalha, me desafiando por 100 dias para alcançar 85Kg
 O projeto completo está no [Repositorio GitHub](https://github.com/johnywalves/PyStudies/tree/master/Controle_Peso_100_dias)
@@ -36,7 +32,7 @@ Data,Peso,Imagem,AtividadeFisica,AlimentacaoTipo,AlimentacaoNivel,AlimentacaoCon
 {% endhighlight %}
 
 Carregando os dados as bibliotecas de *pandas*, manipular os dados, e *numpy*, funções matemáticas.<br>
-Lendo e carregando o arquivo convertendo os textos em json para controle posterior
+Lendo e carregando o arquivo convertendo os textos em json, para acumular os históricos de atividades físicas e tipo de alimentação ambos objetos com listagens
 
 
 {% highlight python %}
@@ -62,7 +58,7 @@ max = df_dados['Peso'].max()
 df_dados['Peso'] = df_dados['Peso'].interpolate()
 {% endhighlight %}
 
-Vamos gerar a informação de uma linha 
+Com uma projeção linear de peso máximo para o objetivo 
 
 
 {% highlight python %}
@@ -73,6 +69,7 @@ df_dados['Limite'] = linha_limite
 
 ### Nível de atividades físicas
 
+Para o resultado do fluxo ser negativo é necessário ter saída, aumentar esse fluxo com muita atividade física
 
 
 {% highlight python %}
@@ -90,7 +87,7 @@ df_dados['ScoreAtividade'] = df_dados['AtividadeFisica'].apply(scoreAtividade)
 df_dados['ScoreAtividade'] = 15 * df_dados['ScoreAtividade']
 {% endhighlight %}
 
-Usando elevação de 2, para impedir que as somas 
+Usando elevação de 2, para impedir que as somas deve possuir um valor igual com os outros 
 
 
 {% highlight python %}
@@ -108,6 +105,7 @@ df_dados['Tipo'] = df_dados['AtividadeFisica'].apply(tipoAtividade)
 
 ### Nível de alimentação
 
+Usando as regras de 
 
 
 {% highlight python %}
@@ -157,7 +155,7 @@ plt.errorbar(df_dados["NumeroDias"], df_dados["Peso"], yerr=df_dados['ScoreAlime
 plt.xlabel("Dias")
 plt.ylabel("Medida")
 plt.legend(['Evolução', 'Objetivo'])
-plt.savefig('evolution.svg', dpi=300)
+plt.savefig('evolution.png', dpi=300)
 plt.show()
 {% endhighlight %}
 

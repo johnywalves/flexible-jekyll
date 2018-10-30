@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Flask Restful API com Token (Python)"
+title: "Web API Python com Flask, Restful e Token"
 date: 2018-09-10 20:33:15 -0300
 tags: [Flask, Python, Web, API]
 img: flask-1.jpg
@@ -11,6 +11,17 @@ output: html_document
 
 A vantagem de utilizar uma Web API para garantir o acesso e manipulação de dados de uma aplicação possibilita controlar a disponibilidade, segurança e formato dos dados<br>
 Fazendo uso de alguns pacotes Python para controlar as Requisições/Respostas, JSON, REST, JWT e Criptografia Hash podemos entregar de maneira fácil e rápida essa API
+
+#### Tópicos
+
+[Ambimente](#ambiente)<br/>
+[Flask](#flask)<br/>
+[REST](#rest)<br/>
+[JSON](#json)<br/>
+[Token](#token)<br/>
+[Testando](#testando)<br/>
+[Criptografia Hash](#criptografia hash)<br/>
+[Compilando](#compilando)
 
 ## Ambiente
 
@@ -36,7 +47,7 @@ Dentro do *pipenv*, os comandos ignoram os pacotes no ambiente externo, sendo ne
 pipenv install flask flask-restful flask-jwt-extended passlib
 {% endhighlight %}
 
-## Servidor  
+## Flask  
 
 O pacote do **Flask** possibilita escutar uma porta para garantir uma aplicação *Web*<br>
 Criar um arquivo **app.py** com o conteúdo abaixo, esse nome é um dos padrões do Flask, aconselhavél seu uso
@@ -101,6 +112,8 @@ class response(Resource):
 
 api.add_resource(response, '/response')
 {% endhighlight %}
+
+## Testando
 
 Para testar a execução podemos utiliza o [PostMan](https://www.getpostman.com/) ou pelo pacote **request** do Python<br>
 Vamos instalar o **requests** pelo PyPi 
@@ -222,7 +235,7 @@ app.config['JWT_SECRET_KEY'] = 'Chave-Secreta-JWT'
 jwt = JWTManager(app)
 
 class token(Resource):
-	def get(self):
+	def post(self):
 		data = request.json
 
 		if (('admin' == data['user']) & ('123' == data['pass'])):
@@ -237,7 +250,7 @@ Com o trecho implantado, conseguimos acesso ao token com com um GET, informando 
 
 
 {% highlight python %}
-get('http://localhost:5000/token', json={'user':'admin', 'pass':'123'}).json()
+post('http://localhost:5000/token', json={'user':'admin', 'pass':'123'}).json()
 # {'token': '<token gerado>'}
 {% endhighlight %}
 

@@ -101,7 +101,9 @@ service cron reload
 
 ## Serviços 
 
+Verificar o status de um serviço
+
 
 {% highlight bash %}
-systemctl
+systemctl status application.service
 {% endhighlight %}

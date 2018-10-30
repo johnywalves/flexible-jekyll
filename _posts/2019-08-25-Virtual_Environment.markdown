@@ -8,6 +8,7 @@ output: html_document
 ---
 
 
+
 Para facilitar o controle de dependências de uma projeto Python podemos isolar um ambiente para executar com um versão controlada do Python e dos seus pacotes<br>
 Com um [Ambiente Python](../Ambiente_Python) preparado podemos instalar o pacote do pipenv, nosso gestor de ambientes virtuais, com ele podemos: 
 
