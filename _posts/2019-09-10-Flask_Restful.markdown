@@ -3,6 +3,7 @@ layout: post
 title: "Web API Python com Flask, Restful e Token"
 date: 2018-09-10 20:33:15 -0300
 tags: [Flask, Python, Web, API]
+topics: [Ambiente, Flask, REST, JSON, Token, Testando, Criptografia Hash, Compilando]
 img: flask-1.jpg
 output: html_document      
 ---
@@ -11,17 +12,6 @@ output: html_document
 
 A vantagem de utilizar uma Web API para garantir o acesso e manipulação de dados de uma aplicação possibilita controlar a disponibilidade, segurança e formato dos dados<br>
 Fazendo uso de alguns pacotes Python para controlar as Requisições/Respostas, JSON, REST, JWT e Criptografia Hash podemos entregar de maneira fácil e rápida essa API
-
-#### Tópicos
-
-[Ambimente](#ambiente)<br/>
-[Flask](#flask)<br/>
-[REST](#rest)<br/>
-[JSON](#json)<br/>
-[Token](#token)<br/>
-[Testando](#testando)<br/>
-[Criptografia Hash](#criptografia hash)<br/>
-[Compilando](#compilando)
 
 ## Ambiente
 

@@ -7,6 +7,8 @@ img: balance-1.jpg
 output: html_document      
 ---
 
+
+
 Sempre tive um barriguinha redonda, na minha guerra constante resolvi usar um pouco de ciência de dados para ajudar em mais uma batalha, me desafiando por 100 dias para alcançar 85Kg
 O projeto completo está no [Repositorio GitHub](https://github.com/johnywalves/PyStudies/tree/master/Controle_Peso_100_dias)
 

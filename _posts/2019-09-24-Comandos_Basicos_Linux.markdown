@@ -3,6 +3,7 @@ layout: post
 title: "Comandos Básicos Linux para Consulta"
 date: 2018-09-24 22:17:00 -0300
 tags: [Linux, Bash, Shell]
+topics: [Arquivos e Diretórios, Redes, CRON, Serviços]
 img: pinguim-1.jpg
 output: html_document      
 ---
@@ -13,13 +14,6 @@ output: html_document
 
 Recentemente me deparei com a necessidade de aprender a lidar com o linux, sem uma interface gráfica, amei<br>
 Dentro do uso com o shell do Linux para mim foi a dificuldade de memorizar os comandos, então criei um guia pequeno para consultar constantemente
-
-#### Tópicos
-
-[Arquivos e Diretórios](#ambiente)<br/>
-[Redes](#redes)<br/>
-[CRON](#cron)<br/>
-[Serviços](#serviços)
 
 ## Arquivos e Diretórios
 

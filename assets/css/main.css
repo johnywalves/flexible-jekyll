@@ -1292,6 +1292,7 @@ a.newer-posts:hover {
   background-color: #ecf0f1;
 }
 
+.page-subheader .page-topic a,
 .page-footer .page-tag a {
   text-decoration: none;
   font-size: 10px;

@@ -19,6 +19,15 @@ layout: main
         <h1 class="page-title">{{page.title}}</h1>
         <div class="page-date"><span>{{page.date | date: '%Y, %b %d'}}&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
       </header>
+	  {% if page.topics %}
+	    <div class="page-subheader">
+		    <div class="page-topic">
+			  {% for topic in page.topics %}
+			    <a href='#{{topic | downcase | replace: " ", "-" }}' class="tag">{{ topic }}</a>
+			  {% endfor %}
+		    </div>
+  	    </div>
+	  {% endif %}		  
       {{content | markdownify}}
       <div class="page-footer">
         <div class="page-share">
