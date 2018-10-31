@@ -1199,6 +1199,15 @@ a.newer-posts:hover {
   padding: 20px;
 }
 
+.wrap-content a {
+  text-decoration: none;
+  color: #fca61b;
+}
+
+.wrap-content a:hover {
+  text-decoration: underline;
+}
+
 .header-page {
   text-align: center;
   margin: 10px 0;
@@ -1248,6 +1257,20 @@ a.newer-posts:hover {
   height: 100%;
 }
 
+.page-subheader .page-topic a {
+  text-decoration: none;
+  font-size: 10px;
+  padding: 5px 10px;
+  margin-left: 5px;
+  color: #263959;
+  text-transform: uppercase;
+  border: 1px solid #263959;
+}
+
+.page-subheader .page-topic a:hover {
+  text-decoration: underline;
+}
+
 .page-footer {
   display: -webkit-box;
   display: -webkit-flex;
@@ -1292,7 +1315,6 @@ a.newer-posts:hover {
   background-color: #ecf0f1;
 }
 
-.page-subheader .page-topic a,
 .page-footer .page-tag a {
   text-decoration: none;
   font-size: 10px;

@@ -9,7 +9,7 @@ output: html_document
 
 
 
-Instalar o pacote do SQLAlchemy pelo repositório
+Instalar o pacote do SQLAlchemy pelo repositório PiPy
 
 
 {% highlight bash %}

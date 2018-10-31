@@ -1,5 +1,12 @@
 .wrap-content {
   padding: 20px;
+  a {
+    text-decoration: none;
+	color: $link-color;
+    &:hover {
+  	  text-decoration: underline;
+    }
+  }
 }
 
 .header-page {
@@ -43,6 +50,23 @@
   .page-image {
     width: 100%;
     height: 100%;
+  }
+}
+
+.page-subheader {
+  .page-topic {
+    a {
+      text-decoration: none;
+      font-size: 10px;
+      padding: 5px 10px;
+      margin-left: 5px;
+      color: $dark-blue;
+      text-transform: uppercase;
+      border: 1px solid $dark-blue;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
 }
 

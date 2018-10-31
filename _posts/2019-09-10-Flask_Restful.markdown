@@ -72,14 +72,12 @@ Acessando pelo navegador o endereço [http://localhost:5000/](http://localhost:5
 
 De forma simplicitada uma REST faz referência a um CRUD através de requisições HTTP, onde o servidor e cliente possui uma comunicação completa sem a necessidade de armazenar informações
 
-|	Operações	|	Descrição	|
-|---|---|
-|	POST		|	(CREATE) Inserir novas instâncias	|
-|	GET			| (READ) Consultar instâncias  	|
-|	PUT			|	(UPDATE) Atualizar as informações de uma ou várias instâncias	|
-|	DELETE		|	(DELETE) Deletar uma instância 	|
+**POST:** Inserir uma ou várias instâncias
+**GET:** Consultar instâncias
+**PUT:** Atualizar as informações de uma ou várias instâncias
+**DELETE:** Deletar uma instância
 
-Vamos adicionar um nível de detalhamento com os métodos de requisição HTTP  
+Aplicando a leitura das requisições dos HTTP
 
 
 {% highlight python %}
@@ -103,24 +101,25 @@ class response(Resource):
 api.add_resource(response, '/response')
 {% endhighlight %}
 
+Atualizar a execução do sistema podemos verificar a resposta do processo novo
+
 ## Testando
 
-Para testar a execução podemos utiliza o [PostMan](https://www.getpostman.com/) ou pelo pacote **request** do Python<br>
-Vamos instalar o **requests** pelo PyPi 
+Para testar a execução podemos utiliza o [PostMan](https://www.getpostman.com/) ou pelo pacote **request** do Python, que pode ser instalada pelo PyPi com o comando
 
 
 {% highlight bash %}
 pip install requests
 {% endhighlight %}
 
-Através do shell do Python, acessado pelo comando `python` no shell do sistema, carregamos os objetos para cada tipo de requisição
+Através do shell do Python, comando *python* no shell, carregamos os objetos para cada tipo de requisição
 
 
 {% highlight python %}
 from requests import put, get, post, delete
 {% endhighlight %}
 
-De maneira simples podemos fazer as requisições, com a função `.json()` forçando uma resposta em json
+No trecho abaixo realizamos as requisições informando a URL completa, com a função *.json()* forçando uma resposta em json
 
 
 {% highlight python %}
@@ -139,8 +138,7 @@ delete('http://localhost:5000/response').json()
 
 ## JSON
 
-JSON uma notação de objetos projetada para o JavaScript, por sua facilitada foi a adotada largamente para armazenar e trafegar documentos estruturados e sem esquemas<br/> 
-Por exemplo um trecho de uma receita de bolo
+Uma notação de objetos projetada para o JavaScript, por sua facilitada foi a adotada largamente para armazenamento e trafego de documentos estruturados e sem esquemas, por exemplo um trecho de uma receita de bolo
 
 
 {% highlight js %}
@@ -157,7 +155,7 @@ Por exemplo um trecho de uma receita de bolo
 }
 {% endhighlight %}
 
-Usado o Flask podemos ler os dados contidos no corpo do JSON e imprimir no servidor 
+Usando o Flask podemos ler os dados contidos no corpo do JSON e imprimir no servidor 
 
 
 {% highlight python %}
@@ -177,7 +175,7 @@ class readJSON(Resource):
 api.add_resource(readJSON, '/readjson')
 {% endhighlight %}
 
-Testando com a biblioteca do requests 
+Realizando um teste pela biblioteca *request*, fazendo um post informando o conteúdo através do parametro *json* e visualizando a impressão na parte do servidor
 
 
 {% highlight python %}
@@ -206,7 +204,7 @@ class response(Resource):
 		return {'post':'Resposta de POST'}
 {% endhighlight %}
 
-Como resultado ao realizar a requisição POST sem o token, o sistema bloqueia com o erro interno `Missing Authorization Header`
+Como resultado ao realizar a requisição POST sem o token, o sistema bloqueia com o erro interno *Missing Authorization Header* e retornando para o cliente *Internal Server Error*
 
 
 {% highlight python %}
