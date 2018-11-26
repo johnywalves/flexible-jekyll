@@ -934,6 +934,9 @@ table tfoot td {
   height: 100%;
   padding: 20px 10px;
   background-color: #ffffff;
+  background-image: url("/assets/img/background.jpg");
+  -webkit-background-size: cover;
+          background-size: cover;
 }
 
 .about {
