@@ -72,10 +72,10 @@ Acessando pelo navegador o endereço [http://localhost:5000/](http://localhost:5
 
 De forma simplicitada uma REST faz referência a um CRUD através de requisições HTTP, onde o servidor e cliente possui uma comunicação completa sem a necessidade de armazenar informações
 
-**POST:** Inserir uma ou várias instâncias
-**GET:** Consultar instâncias
-**PUT:** Atualizar as informações de uma ou várias instâncias
-**DELETE:** Deletar uma instância
+- **POST:** Inserir uma ou várias instâncias
+- **GET:** Consultar instâncias
+- **PUT:** Atualizar as informações de uma ou várias instâncias
+- **DELETE:** Deletar uma instância
 
 Aplicando a leitura das requisições dos HTTP
 
@@ -212,14 +212,14 @@ post('http://localhost:5000/v1.0/posts').json()
 # {'message': 'Internal Server Error'} 
 {% endhighlight %}
 
-Para disponibilizar o token usamos a chave secreta 'Chave-Secreta-JWT', cada sistema deve ter a sua própria<br>
+Para disponibilizar o token usamos a chave secreta '<Chave Secreta JWT>', cada sistema deve ter a sua própria<br>
 Podemos saber quem realizou a requisição usando o comando `get_jwt_identity()` para ler a identidade do usuário, mas antes precisamos gerar o token com essa identidade pelo `create_access_token`
 
 
 {% highlight python %}
 from flask_jwt_extended import JWTManager, jwt_required, get_jwt_identity, create_access_token
 
-app.config['JWT_SECRET_KEY'] = 'Chave-Secreta-JWT'
+app.config['JWT_SECRET_KEY'] = '<Chave Secreta JWT>'
 jwt = JWTManager(app)
 
 class token(Resource):
@@ -274,7 +274,7 @@ Claro que este trecho funciona melhor com uma base de dados consultando o nome d
 ### Compilando
 
 Para facilitar o código completo gerado nas etapas anteriores que devem conter no *app.py* para rodar com o \'flask run\'<br>
-Não esquencendo de alterar a 'Chave-Secreta-JWT' para sua chave particular
+Não esquencendo de alterar a '<Chave Secreta JWT>' para sua chave particular
 
 
 {% highlight python %}
@@ -287,7 +287,7 @@ from passlib.hash import pbkdf2_sha256 as sha256
 app = Flask(__name__)
 api = Api(app)
 
-app.config['JWT_SECRET_KEY'] = 'Chave-Secreta-JWT'
+app.config['JWT_SECRET_KEY'] = '<Chave Secreta JWT>'
 jwt = JWTManager(app)
 
 @app.route('/')
@@ -326,7 +326,7 @@ class token(Resource):
 	def post(self):
 		data = request.json
 
-		if (('admin' == data['user']) & sha256.verify(data['pass'], '$pbkdf2-sha256$29000$mzNmjJHSWuudE8KYU8q59w$HLyrrchxVmTINur6OJ5LxQP8Rma2lWpDveHCzVa7iKQ')):		
+		if (('admin' == data['user']) & sha256.verify(data['pass'], '<Sequência de caracteres Hash>')):		
 			current_user = get_jwt_identity()
 			access_token = create_access_token(identity = current_user)
 			return {'token': access_token}
