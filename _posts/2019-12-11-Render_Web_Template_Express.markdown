@@ -2,9 +2,9 @@
 layout: post
 title: "Render Web Template (JavaScript Express)"
 date: 2018-12-11 16:22:15 -0200
-tags: [Web, Python, Flask]
+tags: [Web, JavaScript, Express]
 topics: [Montagem do Modelo, Preparação, Interpretação, Arquivos Estáticos, Favicon, Execução]
-img: flask-1.jpg
+img: python-1.jpg
 output: html_document
 ---
 
@@ -144,12 +144,13 @@ app.get('/lista/', function (req, res) {
 Folhas de estilo não costumam sofre variação na execução do sistema, não sendo necessária a intepreção da mesma
 Para entregar devemos adicionar na pasta **static** na raiz do projeto, esse nome pode ser mudado
 
-```
+
+{% highlight html %}
 /server.js
 /view
 /static
     /style.css
-```
+{% endhighlight %}
 
 Disponibilizando todos os arquivos disponibilizados na pasta
 
