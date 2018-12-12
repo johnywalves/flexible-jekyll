@@ -4,7 +4,7 @@ title: "Render Web Template (JavaScript Express)"
 date: 2018-12-11 16:22:15 -0200
 tags: [Web, JavaScript, Express]
 topics: [Montagem do Modelo, Preparação, Interpretação, Arquivos Estáticos, Favicon, Execução]
-img: python-1.jpg
+img: js-1.png
 output: html_document
 ---
 

@@ -4,7 +4,7 @@ title: "Render Web Template (Python Flask)"
 date: 2018-12-11 16:22:15 -0200
 tags: [Web, Python, Flask]
 topics: [Montagem do Modelo, Preparação, Interpretação, Arquivos Estáticos, Favicon, Execução]
-img: js-1.jpg
+img: python-1.jpg
 output: html_document
 ---
 
