@@ -88,13 +88,14 @@ Página Teste
 
 A estrutura de arquivos deve ficar assim: 
 
-```
+
+{% highlight html %}
 /server.js
 /view
 	/hello.twig
 	/lista.twig
 	/base.twig
-```
+{% endhighlight %}
 
 ## Preparação
 
@@ -191,5 +192,5 @@ Uma mensagem no shell apresenta que o site está disponível no [localhost:3000]
 
 ### Referências
 
-[Express - API 4.x](http://expressjs.com/pt-br/api.html)
-[NPM - Twig](https://www.npmjs.com/package/twig)
+[Express - API 4.x](http://expressjs.com/pt-br/api.html)  
+[NPM - Twig](https://www.npmjs.com/package/twig)  

@@ -88,13 +88,14 @@ Página Teste
 
 A estrutura de arquivos deve ficar assim: 
 
-```
+
+{% highlight html %}
 /app.py
 /templates
-  /hello.html
+	/hello.html
 	/lista.html
 	/base.html
-```
+{% endhighlight %}
 
 ## Preparação 
 
