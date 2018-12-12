@@ -251,7 +251,7 @@ post('http://localhost:5000/v1.0/posts', headers=headers).json()
 # {'post':'Resposta de POST'}
 {% endhighlight %}
 
-### Criptografia Hash 
+## Criptografia Hash 
 
 No trecho anterior usamos como exemplo o usuário "admin" e senha "123", mas uma boa prática é evitar o uso de Text Plain para senhas uma ótima maneira é descaracterizar o conteúdo, com uma função hash 
 
@@ -271,7 +271,7 @@ if (('admin' == data['user']) & sha256.verify(data['pass'], '<Sequência de cara
 
 Claro que este trecho funciona melhor com uma base de dados consultando o nome do usuário e a senha hash armazenada
 
-### Compilando
+## Compilando
 
 Para facilitar o código completo gerado nas etapas anteriores que devem conter no *app.py* para rodar com o \'flask run\'<br>
 Não esquencendo de alterar a '<Chave Secreta JWT>' para sua chave particular
