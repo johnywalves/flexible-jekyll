@@ -10,7 +10,7 @@ output: html_document
 
 
 
-A vantagem de utilizar uma Web API para garantir o acesso e manipulação de dados de uma aplicação possibilita controlar a disponibilidade, segurança e formato dos dados<br>
+A vantagem de utilizar uma Web API para garantir o acesso e manipulação de dados de uma aplicação possibilita controlar a disponibilidade, segurança e formato dos dados  
 Fazendo uso de alguns pacotes Python para controlar as Requisições/Respostas, JSON, REST, JWT e Criptografia Hash podemos entregar de maneira fácil e rápida essa API
 
 ## Ambiente
@@ -22,7 +22,7 @@ Usando um ambiente virtual para facilitar o controle de dependências do projeto
 pip install pipenv 
 {% endhighlight %}
 
-Iniciar o ambiente virtual, onde o desenvolvimento será isolado, para gerenciar as dependências<br>
+Iniciar o ambiente virtual, onde o desenvolvimento será isolado, para gerenciar as dependências  
 Dentro da pasta do projeto onde os fontes serão criados  
 
 
@@ -70,14 +70,14 @@ Acessando pelo navegador o endereço [http://localhost:5000/](http://localhost:5
 
 ## REST
 
-De forma simplicitada uma REST faz referência a um CRUD através de requisições HTTP, onde o servidor e cliente possui uma comunicação completa sem a necessidade de armazenar informações
-
-- **POST:** Inserir uma ou várias instâncias
-- **GET:** Consultar instâncias
-- **PUT:** Atualizar as informações de uma ou várias instâncias
-- **DELETE:** Deletar uma instância
-
-Aplicando a leitura das requisições dos HTTP
+De forma simplicitada uma REST faz referência a um CRUD através de requisições HTTP, onde o servidor e cliente possui uma comunicação completa sem a necessidade de armazenar informações  
+  
+- **POST:** Inserir uma ou várias instâncias  
+- **GET:** Consultar instâncias  
+- **PUT:** Atualizar as informações de uma ou várias instâncias  
+- **DELETE:** Deletar uma instância  
+  
+Aplicando a leitura das requisições dos HTTP  
 
 
 {% highlight python %}
@@ -212,7 +212,7 @@ post('http://localhost:5000/v1.0/posts').json()
 # {'message': 'Internal Server Error'} 
 {% endhighlight %}
 
-Para disponibilizar o token usamos a chave secreta '<Chave Secreta JWT>', cada sistema deve ter a sua própria<br>
+Para disponibilizar o token usamos a chave secreta '<Chave Secreta JWT>', cada sistema deve ter a sua própria  
 Podemos saber quem realizou a requisição usando o comando `get_jwt_identity()` para ler a identidade do usuário, mas antes precisamos gerar o token com essa identidade pelo `create_access_token`
 
 

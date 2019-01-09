@@ -7,7 +7,7 @@ img: kill-bill-1.jpg
 output: html_document
 ---
 
-Quando estava aprendendo o básico da **Linguagem R** e o **R Studio** em uma workshop do Igor Alcantara, ele disponibilizou algumas bases de dados dentre eles com ofecenças e mortes em filmes do Quentin Tarantino.<br> 
+Quando estava aprendendo o básico da **Linguagem R** e o **R Studio** em uma workshop do Igor Alcantara, ele disponibilizou algumas bases de dados dentre eles com ofecenças e mortes em filmes do Quentin Tarantino.  
 Brincando um pouco a base encontrei uma lista de mortes em ambos volumes de Kill Bill e ocorre alguns montes
 
 
@@ -36,6 +36,17 @@ Carregando os dados através do *csv* na pasta e a visualização proporcionou u
 {% highlight r %}
 # Carregar os dados do arquivo csv
 tarantino <- read.csv('tarantino.csv')
+{% endhighlight %}
+
+
+
+{% highlight text %}
+## Error in file(file, "rt"): não é possível abrir a conexão
+{% endhighlight %}
+
+
+
+{% highlight r %}
 # Visualizar os primeiros registros do data.frame
 head(tarantino)
 {% endhighlight %}
@@ -43,13 +54,7 @@ head(tarantino)
 
 
 {% highlight text %}
-##            movie type     word minutes_in
-## 1 Reservoir Dogs word     dick       0.40
-## 2 Reservoir Dogs word    dicks       0.43
-## 3 Reservoir Dogs word   fucked       0.55
-## 4 Reservoir Dogs word  fucking       0.61
-## 5 Reservoir Dogs word bullshit       0.61
-## 6 Reservoir Dogs word     fuck       0.66
+## Error in head(tarantino): objeto 'tarantino' não encontrado
 {% endhighlight %}
 
 Os dados estão organizados com os nomes dos filmes, acontecimento de tempo em minutos
@@ -65,21 +70,50 @@ mortes <-
   filter(type == 'death' & (movie == 'Kill Bill: Vol. 1' | movie == 'Kill Bill: Vol. 2'))
 {% endhighlight %}
 
+
+
+{% highlight text %}
+## Error in eval(lhs, parent, parent): objeto 'tarantino' não encontrado
+{% endhighlight %}
+
 Para ter uma coluna com quantidade crescente de mortes, para facilitar na geração no gráfico
 
 
 {% highlight r %}
 qtdMortes <- nrow(as.data.frame(mortes$minutes_in))
+{% endhighlight %}
+
+
+
+{% highlight text %}
+## Error in as.data.frame(mortes$minutes_in): objeto 'mortes' não encontrado
+{% endhighlight %}
+
+
+
+{% highlight r %}
 mortes$qtd <- seq(1, qtdMortes)
 {% endhighlight %}
 
-Adicionei de 112 minutos antes do segundo para duração do primeiro volume acrescido de um minuto.<br>
+
+
+{% highlight text %}
+## Error in seq.default(1, qtdMortes): objeto 'qtdMortes' não encontrado
+{% endhighlight %}
+
+Adicionei de 112 minutos antes do segundo para duração do primeiro volume acrescido de um minuto.  
 Fonte da duração [Página do IMDb sobre Kill Bill: Volume 1](https://www.imdb.com/title/tt0266697/)
 
 
 {% highlight r %}
 mortes[(mortes$movie == 'Kill Bill: Vol. 2'),]$minutes_in <- 
     mortes[(mortes$movie == 'Kill Bill: Vol. 2'),]$minutes_in + 112
+{% endhighlight %}
+
+
+
+{% highlight text %}
+## Error in eval(expr, envir, enclos): objeto 'mortes' não encontrado
 {% endhighlight %}
 
 ### Visualização
@@ -101,11 +135,25 @@ graph <- ggplot(mortes, aes(x=qtd, y=minutes_in)) +
   geom_segment(color='#0d74db', size = 1, 
                aes(x = 0, xend = qtdMortes, y = 112, yend = 112), alpha = 0.5) +
   theme_minimal()
+{% endhighlight %}
 
+
+
+{% highlight text %}
+## Error in ggplot(mortes, aes(x = qtd, y = minutes_in)): objeto 'mortes' não encontrado
+{% endhighlight %}
+
+
+
+{% highlight r %}
 graph
 {% endhighlight %}
 
-![plot of chunk KillBillDeath](/./assets/Rfig/KillBillDeath-1.svg)
+
+
+{% highlight text %}
+## Error in eval(expr, envir, enclos): objeto 'graph' não encontrado
+{% endhighlight %}
 
 Por final, gerei o arquivo com as informações na variável `graph` para visualização futura e divulgação no site
 

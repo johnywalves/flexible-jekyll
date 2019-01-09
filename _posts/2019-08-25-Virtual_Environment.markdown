@@ -9,15 +9,15 @@ output: html_document
 
 
 
-Para facilitar o controle de dependências de uma projeto Python podemos isolar um ambiente para executar com um versão controlada do Python e dos seus pacotes<br>
+Para facilitar o controle de dependências de uma projeto Python podemos isolar um ambiente para executar com um versão controlada do Python e dos seus pacotes  
 Com um [Ambiente Python](../Ambiente_Python) preparado podemos instalar o pacote do pipenv, nosso gestor de ambientes virtuais, com ele podemos: 
 
-* Controlar os pacotes<br>
-* Isolar para execução<br>
-* Saber as dependências do projeto<br>
-* Faciliitar a duplicação do ambiente para produção e desenvolvimento<br>
-
-Instalando pelo **pip** do repositório do [PyPi](https://pypi.org/)<br>
+* Controlar os pacotes  
+* Isolar para execução  
+* Saber as dependências do projeto  
+* Faciliitar a duplicação do ambiente para produção e desenvolvimento  
+  
+Instalando pelo **pip** do repositório do [PyPi](https://pypi.org/)  
 
 
 {% highlight bash %}
@@ -26,7 +26,7 @@ pip install pipenv
 
 ## Gerenciar Ambiente Virtual
 
-Para criar um ambiente virtual, usando a versão instalada e configurada como padrão do Python<br>
+Para criar um ambiente virtual, usando a versão instalada e configurada como padrão do Python
 
 
 {% highlight bash %}
@@ -54,16 +54,16 @@ Assim podemos instalar um pacote de maneira muito semelhante ao **pip**
 pipenv install <nome do pacote>
 {% endhighlight %}
 
-Com o comando anterior o sistema cria no arquvio **Pipfile** na pasta atual, o arquivo contém todas as configurações do ambiente como versão do Pyhton e pacotes instalados nele<br>
-Podemos congelar as versões dos pacotes
+Com o comando anterior o sistema cria no arquvio **Pipfile** na pasta atual, o arquivo contém todas as configurações do ambiente como versão do Pyhton e pacotes instalados nele  
+Podemos "congelar" as versões dos pacotes
 
 
 {% highlight bash %}
 pipenv lock
 {% endhighlight %}
 
-Gerando o arquivo **Pipfile.lock** com as versões dos pacotes<br>
-Para instalar um ambiente apartir de um já configurado basta executar novamente o comando em uma pasta com os **Pipfile** e o **Pipfile.lock**<br>
+Gerando o arquivo **Pipfile.lock** com as versões dos pacotes  
+Para instalar um ambiente apartir de um já configurado basta executar novamente o comando em uma pasta com os **Pipfile** e o **Pipfile.lock**  
 No exemplo a seguir vamos usar o pacote flask, que mesmo instalado no ambiente da máquina, precisa estar no *Virtual*, ou somente no virtual
 
 

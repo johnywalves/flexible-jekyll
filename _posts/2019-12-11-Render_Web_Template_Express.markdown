@@ -4,18 +4,18 @@ title: "Render Web Template (JavaScript Express)"
 date: 2018-12-11 16:22:15 -0200
 tags: [Web, JavaScript, Express]
 topics: [Montagem do Modelo, Preparação, Interpretação, Arquivos Estáticos, Favicon, Execução]
-img: js-1.png
+img: gearsjs-1.png
 output: html_document
 ---
 
 
 
-Entregar páginas Web intepretando como se fossem estáticas, reduz a carga de processo pelo cliente, executando o processamento pelo servidor onde pode estar posicionado a base de dados e outros recursos que não precisam disponibilidade fora dele
+Entregar páginas Web intepretando como se fossem estáticas, reduz a carga de processamento pelo cliente, executando pelo servidor onde pode estar a base de dados e outros recursos, podendo ser disponiveis somente neste ambiente
 
 ## Montagem do Modelo
 
-Fazendo uso do [Jinja](http://jinja.pocoo.org/docs/2.10/templates/) para a montagem do HTML os delimitadores para expressões entre `{{'{{'}}` e `}}` e controles de fluxo entre `{{'{%'}}` e `%}`  
-Inserir um valor direto no corpo do arquivo, usando a extensão **twig**
+Fazendo uso do [Jinja](http://jinja.pocoo.org/docs/2.10/templates/), um modelo de sintaxe e semantica, montamos um documento  HTML, fazendo uso de delimitadores para expressões **{{'{{'}}** e **}}** e controles de fluxo **{{'{%'}}** e **%}**  
+Assim inserimos um valor direto no corpo do arquivo, usando a extensão **twig** e salvando na pasta **view** para interpretação
 
 
 {% highlight html %}
@@ -23,7 +23,7 @@ Inserir um valor direto no corpo do arquivo, usando a extensão **twig**
 	<h1>Hello {{'{{'}} nome }}</h1>
 {% endhighlight %}
 
-Uso de if para mudar a opção de treços de código
+Com o uso de **if** mudamos o fluxo de treços de código
 
 
 {% highlight html %}
@@ -35,7 +35,7 @@ Uso de if para mudar a opção de treços de código
 	{{'{%'}} endif %}
 {% endhighlight %}
 
-ou por uso de if ternário, seguindo o padrão do JavaScript
+ou por uso de if ternário, seguindo o padrão do **JavaScript**
 
 
 {% highlight html %}
@@ -43,7 +43,7 @@ ou por uso de if ternário, seguindo o padrão do JavaScript
 	<h1>Hello, {{'{{'}} (nome ? nome : 'World') }}!</h1>	
 {% endhighlight %}
 
-Através da iteração de uma lista de objetos, salvando na pasta de **view** com o nome de **lista.twig**
+Através da iteração de uma lista de objetos construimos uma sequência de tags com vários links, salvando na pasta de **view** com o nome de **lista.twig**
 
 
 {% highlight html %}
@@ -67,7 +67,7 @@ Com o uso um modelo padrão, salvando na pasta de **view** com o nome de **base.
   </div>	
 {% endhighlight %}
 
-As definições de bloco `{{'{%'}} block titulo %}` e  `{{'{%'}} block corpo %}` podem ser preenchidas por qualquer página ao estender o documento de base, vamos fazer isso no **lista.twig**
+As definições de bloco **{{'{%'}} block titulo %}** e  **{{'{%'}} block corpo %}** podem ser preenchidas por qualquer página ao estender o documento de base, vamos fazer isso no **lista.twig**
 
 
 {% highlight html %}
@@ -90,7 +90,6 @@ A estrutura de arquivos deve ficar assim:
 
 
 {% highlight html %}
-/server.js
 /view
 	/hello.twig
 	/lista.twig
@@ -99,11 +98,11 @@ A estrutura de arquivos deve ficar assim:
 
 ## Preparação
 
-Instalar o pelo gerenciador de pacotes
+Instalar o pelo gerenciador os pacotes **express**, **twig**, **path** e **serve-favicon**
 
 
 {% highlight bash %}
-npm i express path twig serve-favicon
+npm i express twig path serve-favicon
 {% endhighlight %}
 
 Iniciando o arquivo **server.js** com a declaração do Express e do Twig

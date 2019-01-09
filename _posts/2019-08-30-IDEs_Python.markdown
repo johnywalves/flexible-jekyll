@@ -9,8 +9,8 @@ output: html_document
 
 
 
-Ambientes de Desenvolvimentos ou IDE (Integrated Development Environment) são ferramentas para auxliar o desenvolvimento com validações de sintaxe, autopreencimento de comandos, automação para executar e publicar o projeto devenvolvido<br>
-Lembrando que a definição de um verdadeiro programador é o tema de sua IDE, sempre dark para evitar cansaços aos olhos<br>
+Ambientes de Desenvolvimentos ou IDE (Integrated Development Environment) são ferramentas para auxliar o desenvolvimento com validações de sintaxe, autopreencimento de comandos, automação para executar e publicar o projeto devenvolvido  
+Lembrando que a definição de um verdadeiro programador é o tema de sua IDE, sempre dark para evitar cansaços aos olhos  
 Uma ótima pedida é [Microsoft Visual Code](https://code.visualstudio.com/) que possui terminal integrado e vários plugins, mas um ambiente dedicado é sempre uma boa opção como o **Jupyter** e o **Spyder**, ambos com o [IPython](https://ipython.org/) integrada
 
 ### Jupyter Notebook

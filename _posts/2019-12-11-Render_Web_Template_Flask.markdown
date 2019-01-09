@@ -4,13 +4,13 @@ title: "Render Web Template (Python Flask)"
 date: 2018-12-11 16:22:15 -0200
 tags: [Web, Python, Flask]
 topics: [Montagem do Modelo, Preparação, Interpretação, Arquivos Estáticos, Favicon, Execução]
-img: python-1.jpg
+img: gearspy-1.jpg
 output: html_document
 ---
 
 
 
-Entregar páginas Web intepretando como se fossem estáticas, reduz a carga de processo pelo cliente, executando o processamento pelo servidor onde pode estar posicionado a base de dados e outros recursos que não precisam disponibilidade fora dele
+Entregar páginas Web intepretando como se fossem estáticas, reduz a carga de processamento pelo cliente, executando pelo servidor onde pode estar posicionado a base de dados e outros recursos que não precisam disponibilidade fora dele
 
 ## Montagem do Modelo
 
