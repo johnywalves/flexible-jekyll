@@ -4,7 +4,7 @@ title: "Render Web Template (JavaScript Express)"
 date: 2018-12-11 16:22:15 -0200
 tags: [Web, JavaScript, Express]
 topics: [Montagem do Modelo, Preparação, Interpretação, Arquivos Estáticos, Favicon, Execução]
-img: gearsjs-1.png
+img: gearsjs-1.jpg
 output: html_document
 ---
 
