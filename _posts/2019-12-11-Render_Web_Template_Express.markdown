@@ -14,7 +14,7 @@ Entregar páginas Web intepretando como se fossem estáticas, reduz a carga de p
 
 ## Montagem do Modelo
 
-Fazendo uso do [Jinja](http://jinja.pocoo.org/docs/2.10/templates/), um modelo de sintaxe e semantica, montamos um documento  HTML, fazendo uso de delimitadores para expressões **{{'{{'}}** e **}}** e controles de fluxo **{{'{%'}}** e **%}**  
+Fazendo uso do [Jinja](http://jinja.pocoo.org/docs/2.10/templates/), um modelo de sintaxe e semantica, montamos um documento  HTML, fazendo uso de delimitadores para expressões `{{'{{'}}` e `}}` e controles de fluxo `{{'{%'}}` e `%}`  
 Assim inserimos um valor direto no corpo do arquivo, usando a extensão **twig** e salvando na pasta **view** para interpretação
 
 
