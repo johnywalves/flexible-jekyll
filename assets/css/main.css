@@ -444,9 +444,9 @@ template {
 }
 
 .highlighter-rouge {
-  color: #ce887b;
+  color: #c30;
   font-weight: 400;
-  padding: 0.2rem 0.1rem;
+  padding: 0.1rem 0.3rem;
   background-color: #E9E9E9;
 }
 
