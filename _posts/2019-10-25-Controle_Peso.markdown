@@ -49,27 +49,6 @@ def LerJSON(data):
 df_dados = pd.read_csv('./dados.csv', quotechar='\'', converters={'AtividadeFisica':LerJSON, 'AlimentacaoTipo':LerJSON}, header=0)
 {% endhighlight %}
 
-
-
-{% highlight text %}
-## FileNotFoundError: File b'./dados.csv' does not exist
-## 
-## Detailed traceback: 
-##   File "<string>", line 1, in <module>
-##   File "C:\Software\Installs\Python37\lib\site-packages\pandas\io\parsers.py", line 678, in parser_f
-##     return _read(filepath_or_buffer, kwds)
-##   File "C:\Software\Installs\Python37\lib\site-packages\pandas\io\parsers.py", line 440, in _read
-##     parser = TextFileReader(filepath_or_buffer, **kwds)
-##   File "C:\Software\Installs\Python37\lib\site-packages\pandas\io\parsers.py", line 787, in __init__
-##     self._make_engine(self.engine)
-##   File "C:\Software\Installs\Python37\lib\site-packages\pandas\io\parsers.py", line 1014, in _make_engine
-##     self._engine = CParserWrapper(self.f, **self.options)
-##   File "C:\Software\Installs\Python37\lib\site-packages\pandas\io\parsers.py", line 1708, in __init__
-##     self._reader = parsers.TextReader(src, **kwds)
-##   File "pandas\_libs\parsers.pyx", line 384, in pandas._libs.parsers.TextReader.__cinit__
-##   File "pandas\_libs\parsers.pyx", line 695, in pandas._libs.parsers.TextReader._setup_parser_source
-{% endhighlight %}
-
 ### Cálculo do limite de peso
 
 Extraindo os dados de contagem e valor máximo das medidas, posteriormente usando extrapolação linear para preencher os dados faltantes
@@ -77,45 +56,8 @@ Extraindo os dados de contagem e valor máximo das medidas, posteriormente usand
 
 {% highlight python %}
 count = df_dados['Peso'].count()
-{% endhighlight %}
-
-
-
-{% highlight text %}
-## NameError: name 'df_dados' is not defined
-## 
-## Detailed traceback: 
-##   File "<string>", line 1, in <module>
-{% endhighlight %}
-
-
-
-{% highlight python %}
 max = df_dados['Peso'].max()
-{% endhighlight %}
-
-
-
-{% highlight text %}
-## NameError: name 'df_dados' is not defined
-## 
-## Detailed traceback: 
-##   File "<string>", line 1, in <module>
-{% endhighlight %}
-
-
-
-{% highlight python %}
 df_dados['Peso'] = df_dados['Peso'].interpolate()
-{% endhighlight %}
-
-
-
-{% highlight text %}
-## NameError: name 'df_dados' is not defined
-## 
-## Detailed traceback: 
-##   File "<string>", line 1, in <module>
 {% endhighlight %}
 
 Com uma projeção linear de peso máximo para o objetivo 
@@ -124,30 +66,7 @@ Com uma projeção linear de peso máximo para o objetivo
 {% highlight python %}
 linha_limite = pd.Series(range(0, focoDias))
 linha_limite = max - (linha_limite * ((max - focoPeso) / focoDias))
-{% endhighlight %}
-
-
-
-{% highlight text %}
-## TypeError: unsupported operand type(s) for -: 'builtin_function_or_method' and 'int'
-## 
-## Detailed traceback: 
-##   File "<string>", line 1, in <module>
-{% endhighlight %}
-
-
-
-{% highlight python %}
 df_dados['Limite'] = linha_limite
-{% endhighlight %}
-
-
-
-{% highlight text %}
-## NameError: name 'df_dados' is not defined
-## 
-## Detailed traceback: 
-##   File "<string>", line 1, in <module>
 {% endhighlight %}
 
 ### Nível de atividades físicas
@@ -167,30 +86,7 @@ def scoreAtividade(data):
         }.get(atividade['Tipo'], lambda: 0)()        
     return score
 df_dados['ScoreAtividade'] = df_dados['AtividadeFisica'].apply(scoreAtividade)
-{% endhighlight %}
-
-
-
-{% highlight text %}
-## NameError: name 'df_dados' is not defined
-## 
-## Detailed traceback: 
-##   File "<string>", line 1, in <module>
-{% endhighlight %}
-
-
-
-{% highlight python %}
 df_dados['ScoreAtividade'] = 15 * df_dados['ScoreAtividade']
-{% endhighlight %}
-
-
-
-{% highlight text %}
-## NameError: name 'df_dados' is not defined
-## 
-## Detailed traceback: 
-##   File "<string>", line 1, in <module>
 {% endhighlight %}
 
 Usando elevação de 2, para impedir que as somas deve possuir um valor igual com os outros 
@@ -207,15 +103,6 @@ def tipoAtividade(data):
         }.get(atividade['Tipo'], lambda: 0)()        
     return tipo
 df_dados['Tipo'] = df_dados['AtividadeFisica'].apply(tipoAtividade)
-{% endhighlight %}
-
-
-
-{% highlight text %}
-## NameError: name 'df_dados' is not defined
-## 
-## Detailed traceback: 
-##   File "<string>", line 1, in <module>
 {% endhighlight %}
 
 ### Nível de alimentação
@@ -245,45 +132,8 @@ def nivelAlimentacao(data):
         'Exagerada': lambda: 8,
     }.get(data, lambda: 0)()
 alimentacaoTipo = df_dados['AlimentacaoTipo'].apply(tipoAlimentacao)
-{% endhighlight %}
-
-
-
-{% highlight text %}
-## NameError: name 'df_dados' is not defined
-## 
-## Detailed traceback: 
-##   File "<string>", line 1, in <module>
-{% endhighlight %}
-
-
-
-{% highlight python %}
 alimentacaoVolume = df_dados['AlimentacaoNivel'].apply(nivelAlimentacao)
-{% endhighlight %}
-
-
-
-{% highlight text %}
-## NameError: name 'df_dados' is not defined
-## 
-## Detailed traceback: 
-##   File "<string>", line 1, in <module>
-{% endhighlight %}
-
-
-
-{% highlight python %}
 df_dados["ScoreAlimentacao"] = 0.025 * np.sqrt(alimentacaoTipo * alimentacaoVolume)
-{% endhighlight %}
-
-
-
-{% highlight text %}
-## NameError: name 'alimentacaoTipo' is not defined
-## 
-## Detailed traceback: 
-##   File "<string>", line 1, in <module>
 {% endhighlight %}
 
 ### Número de dias
@@ -294,15 +144,6 @@ df_dados["ScoreAlimentacao"] = 0.025 * np.sqrt(alimentacaoTipo * alimentacaoVolu
 df_dados["NumeroDias"] = df_dados.index + 1
 {% endhighlight %}
 
-
-
-{% highlight text %}
-## NameError: name 'df_dados' is not defined
-## 
-## Detailed traceback: 
-##   File "<string>", line 1, in <module>
-{% endhighlight %}
-
 ### Geração do gráfico
 
 
@@ -310,65 +151,9 @@ df_dados["NumeroDias"] = df_dados.index + 1
 {% highlight python %}
 import matplotlib.pyplot as plt
 plt.plot(df_dados["NumeroDias"], df_dados["Peso"])
-{% endhighlight %}
-
-
-
-{% highlight text %}
-## NameError: name 'df_dados' is not defined
-## 
-## Detailed traceback: 
-##   File "<string>", line 1, in <module>
-{% endhighlight %}
-
-
-
-{% highlight python %}
 plt.plot(df_dados["NumeroDias"], df_dados["Limite"])
-{% endhighlight %}
-
-
-
-{% highlight text %}
-## NameError: name 'df_dados' is not defined
-## 
-## Detailed traceback: 
-##   File "<string>", line 1, in <module>
-{% endhighlight %}
-
-
-
-{% highlight python %}
 plt.scatter(df_dados["NumeroDias"], df_dados["Peso"], s=df_dados["ScoreAtividade"], c=df_dados["Tipo"], alpha=0.5)
-{% endhighlight %}
-
-
-
-{% highlight text %}
-## NameError: name 'df_dados' is not defined
-## 
-## Detailed traceback: 
-##   File "<string>", line 1, in <module>
-{% endhighlight %}
-
-
-
-{% highlight python %}
 plt.errorbar(df_dados["NumeroDias"], df_dados["Peso"], yerr=df_dados['ScoreAlimentacao'], ecolor="grey", elinewidth=4, alpha=0.75, fmt='none')
-{% endhighlight %}
-
-
-
-{% highlight text %}
-## NameError: name 'df_dados' is not defined
-## 
-## Detailed traceback: 
-##   File "<string>", line 1, in <module>
-{% endhighlight %}
-
-
-
-{% highlight python %}
 plt.xlabel("Dias")
 plt.ylabel("Medida")
 plt.legend(['Evolução', 'Objetivo'])
@@ -383,44 +168,7 @@ plt.show()
 
 {% highlight python %}
 tabela = df_dados[['Data', 'NumeroDias', 'Peso', 'Limite', 'ScoreAtividade', 'ScoreAlimentacao', 'AlimentacaoCondicao']]
-{% endhighlight %}
-
-
-
-{% highlight text %}
-## NameError: name 'df_dados' is not defined
-## 
-## Detailed traceback: 
-##   File "<string>", line 1, in <module>
-{% endhighlight %}
-
-
-
-{% highlight python %}
 tabela.to_csv('dadosOrganizados.csv')
-{% endhighlight %}
-
-
-
-{% highlight text %}
-## NameError: name 'tabela' is not defined
-## 
-## Detailed traceback: 
-##   File "<string>", line 1, in <module>
-{% endhighlight %}
-
-
-
-{% highlight python %}
 tabela.head(15)
-{% endhighlight %}
-
-
-
-{% highlight text %}
-## NameError: name 'tabela' is not defined
-## 
-## Detailed traceback: 
-##   File "<string>", line 1, in <module>
 {% endhighlight %}
 
