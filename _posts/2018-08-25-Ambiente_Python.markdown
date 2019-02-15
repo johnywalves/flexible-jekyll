@@ -9,15 +9,18 @@ output: html_document
 
 
 
-Python é uma linguagem de programação simples e elegante, vem junto com muito amor e facilidade de desenvolvimento, tem até uma poema
+Python é uma linguagem de programação simples e elegante, vem junto com muito amor e facilidade de desenvolvimento, tem até um poema para ensinar o jeito Python de programar
 
 ## Instalação do Python
 
-##### Windows 
+Para iniciar o ambiente precisamos do compilador e Pip
 
-Realizar o donwload em [Python Downloads](https://www.python.org/downloads/) e seguir o passo a passo do instalador, que automaticamente realiza o cadastro dos caminhos nas variáveis de ambiente do Windows
+### Ambiente Windows 
 
-##### Linux
+Realizar o donwload em [Python Downloads](https://www.python.org/downloads/) e seguir o passo a passo do instalador, que automaticamente realiza o cadastro dos caminhos nas variáveis de ambiente do Windows  
+Configurar nas variáveis de sistema `PATH` o caminho raiz e a pasta da instalação
+
+### Ambiente Linux
 
 Distribuições Linux possuem uma ou duas versões do Python já embarcadas, que podem ser acessadas com os comandos `python2`, `python3` ou somente `python`, mas o gerenciador de pacotes precisa ser instalado
 
@@ -27,12 +30,14 @@ apt-get install python-pip # Python 2
 apt-get install python3-pip # Python 3
 {% endhighlight %}
 
-##### Verificar
+### Verificar
 
-Após isso a interface de comando (shell do sistema) deve apresentar a versão instalada do Python com o comando
+Após isso a interface de comando (shell do sistema) deve apresentar a versão instalada do Python com o comando, reforçando que o "V" são maiúsculos 
 
 
 {% highlight bash %}
+python -V
+# ou 
 python --version
 {% endhighlight %}
 
@@ -41,11 +46,13 @@ O gerenciador de pacotes **pip** acessa o repositório [PyPi](https://pypi.org/)
 
 {% highlight bash %}
 pip -V
+# ou 
+pip --version
 {% endhighlight %}
 
 ## Gestão de Dependências
 
-Após o ambiente instalado podemos gerenciar as dependências de maneira bem simples com o **pip**, como por exemplo instalando um pacote pelo nome com
+Após o ambiente instalado podemos gerenciar as dependências de maneira bem simples com o **pip**, como por exemplo instalando um pacote pelo nome do pacote
 
 
 {% highlight bash %}
@@ -114,5 +121,4 @@ Em uma tradução:
 > Se a implementação é fácil de explicar, pode ser uma boa idéia.  
 > Namespaces são uma grande idéia — vamos ter mais dessas!  
   
-
 Eu disse que tem muito amor no Python
