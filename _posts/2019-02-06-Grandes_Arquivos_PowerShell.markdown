@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Arquivos de texto grandes (PowerShell)"
-date: 2018-02-06 16:22:15 -0200
+date: 2019-02-06 16:22:15 -0200
 tags: [PowerShell, Arquivos]
-img: gearspy-1.jpg
+img: gears-1.jpg
 output: html_document
 ---
 
@@ -13,7 +13,6 @@ Lidar com arquivos de texto extensos pode ser um pouco dificil ou demorado para 
 
 ## Contar linhas
 
-Para 
 Substituir o `<caminho do arquivo>`
 
 

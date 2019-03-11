@@ -10,11 +10,11 @@ output: html_document
 
 
 
-Entregar páginas Web intepretando como se fossem estáticas, reduz a carga de processamento pelo cliente, executando pelo servidor onde pode estar posicionado a base de dados e outros recursos que não precisam disponibilidade fora dele
+Entregar páginas Web intepretando como se fossem estáticas, reduz a carga de processamento pelo cliente, executando pelo servidor onde pode estar a base de dados e outros recursos, podendo ser disponiveis somente neste ambiente
 
 ## Montagem do Modelo
 
-Fazendo uso do [Jinja](http://jinja.pocoo.org/docs/2.10/templates/) para a montagem do HTML os delimitadores para expressões entre `{{'{{'}}` e `}}` e controles de fluxo entre `{{'{%'}}` e `%}`  
+Fazendo uso do [Jinja](http://jinja.pocoo.org/docs/2.10/templates/), um modelo de sintaxe e semantica, montamos um documento  HTML, fazendo uso de delimitadores para expressões `{{'{{'}}` e `}}` e controles de fluxo `{{'{%'}}` e `%}`  
 Inserir um valor direto no corpo do arquivo 
 
 
@@ -23,7 +23,7 @@ Inserir um valor direto no corpo do arquivo
 	<h1>Hello {{'{{'}} nome }}</h1>
 {% endhighlight %}
 
-Uso de if para mudar a opção de treços de código
+Com o uso de **if** mudamos o fluxo de treços de código
 
 
 {% highlight html %}
@@ -35,7 +35,7 @@ Uso de if para mudar a opção de treços de código
 	{{'{%'}} endif %}
 {% endhighlight %}
 
-ou por uso de if ternário, seguindo o padrão do Python
+ou por uso de if ternário, seguindo o padrão do **Python**
 
 
 {% highlight html %}
