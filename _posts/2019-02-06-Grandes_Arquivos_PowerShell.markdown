@@ -3,7 +3,7 @@ layout: post
 title: "Arquivos de texto grandes (PowerShell)"
 date: 2019-02-06 16:22:15 -0200
 tags: [PowerShell, Arquivos]
-img: gears-1.jpg
+img: files-1.jpg
 output: html_document
 ---
 

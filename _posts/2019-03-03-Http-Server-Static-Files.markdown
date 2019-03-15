@@ -3,7 +3,7 @@ layout: post
 title: "Http Server para arquivos estáticos (Python e JavaScript)"
 date: 2019-03-03 10:13:13 -0300
 tags: [Web, Python, JavaScript]
-img: gears-1.jpg
+img: gift-1.jpg
 output: html_document
 ---
 
