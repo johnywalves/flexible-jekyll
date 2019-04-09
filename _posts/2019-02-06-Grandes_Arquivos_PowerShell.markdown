@@ -26,7 +26,7 @@ gc $file -read 1000 | % { $nlines += $_.Length };
 ## Separar arquivos por quantidades de linhas
 
 Separar um arquivo grande de serem processados individualmente facilita o processo e controle do progresso  
-Substituindo o `<caminho do arquivo>` e a `<quantidade de linhas>` o código gera *out_<número>.txt* até o fim do texto
+Substituindo o `<caminho do arquivo>` e a `<quantidade de linhas>` o código gera `out_<número>.txt` até o fim do texto
 
 
 {% highlight powershell %}
@@ -38,6 +38,39 @@ Diferente da nossa língua temos vários caracteres diferentes e acentos, podemo
 
 {% highlight powershell %}
 $i=0; Get-Content '<caminho do arquivo>' -Encoding "UTF8" -ReadCount <quantidade de linhas> | %{$i++; $_ | Out-File -Encoding "UTF8" out_$i.csv}
+{% endhighlight %}
+
+## Adicionar cabeçalho para os arquivos
+
+Substituindo o `<caminho do arquivo>` e a `<texto do cabeçalho>`
+
+
+{% highlight powershell %}
+$textfile = '<caminho do arquivo>'
+$header = '<texto do cabeçalho>'
+$($header; Get-Content $textfile) | Set-Content $textfile
+{% endhighlight %}
+
+Substituindo o `<caminho do arquivo>` e a `<caminho do arquivo cabeçalho>`
+
+
+{% highlight powershell %}
+$textfile = '<caminho do arquivo>'
+$headerfile = '<caminho do arquivo cabeçalho>'
+$(Get-Content $headerfile; Get-Content $textfile) | Set-Content $textfile
+{% endhighlight %}
+
+## Dividir as linhas mantendo o cabeçalho
+
+Adicionando os controles de `$header = Get-Content $file -First 1` para capturar o cabeçalho na primeira linha e `$(If ($i -ne 1) {$header} Else {$null})` para adicionar nos arquivos além do primeiro o cabeçalho arquivo  
+Substituindo o `<caminho do arquivo>` e a `<quantidade de linhas>`
+
+
+{% highlight powershell %}
+$file = '<caminho do arquivo>'
+$qtd_lines = <quantidade de linhas>
+$header = Get-Content $file -First 1
+$i=0; Get-Content $file -Encoding "UTF8" -ReadCount $qtd_lines | %{$i++; $($(If ($i -ne 1) {$header} Else {$null}); $_) | Out-File -Encoding "UTF8" out_$i.csv}
 {% endhighlight %}
 
 ## Referências 
