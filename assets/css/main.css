@@ -1001,6 +1001,13 @@ table tfoot td {
   margin: 0 0 10px;
 }
 
+.about a {
+  font-family: 'Lato', sans-serif;
+  text-decoration: none;
+  color: #333030;
+  font-size: 18px;
+}
+
 .content-box {
   padding: 20px;
   padding-left: 260px;

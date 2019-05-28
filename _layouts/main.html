@@ -4,19 +4,19 @@ layout: default
 <aside class="sidebar">
   <header>
     <div class="about">
-      <div class="cover-author-image">
+      <!--<div class="cover-author-image">
         <a href="{{site.baseurl}}/"><img src="{{site.baseurl}}/assets/img/{% if site.author-img %}{{site.author-img}}{% endif %}" alt="{{site.author}}"></a>
-      </div>
-      <div class="author-name">{{site.author}}</div>
+      </div>-->
+      <div class="author-name"><a href="{{site.baseurl}}/">{{site.author}}</a></div>
       <p>{{site.about-author}}</p>
     </div>
   </header>
   <footer>
     <section class="contact">
       <h3 class="contact-title"> Fale comigo </h3>
-	  <h3 class="personal-title"><a href="https://www.johnywalves.com.br"><b>www</b>.johnywalves.com.br</i></a></h3>
+	    <h3 class="personal-title"><a href="https://www.johnywalves.com.br"><b>www</b>.johnywalves.com.br</i></a></h3>
       <ul>
-		{% if site.social-github %}
+		    {% if site.social-github %}
           <li class="github"><a href="http://github.com/{{site.social-github}}" target="_blank"><i class="fa fa-github"></i></a></li>
         {% else %}
           <li class="github"><a href="http://github.com/" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a></li>

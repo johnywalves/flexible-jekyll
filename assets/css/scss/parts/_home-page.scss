@@ -59,6 +59,12 @@
     font-size: 16px;
     margin: 0 0 10px;
   }
+  a {
+    font-family: 'Lato', sans-serif;
+    text-decoration: none;
+    color: $dark;
+    font-size: 18px;
+  }
 }
 .content-box {
   padding: 20px;
