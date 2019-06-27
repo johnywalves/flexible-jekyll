@@ -9,7 +9,7 @@ output: html_document
 
 
 
-Lidar com arquivos de texto extensos pode ser um pouco dificil ou demorado para facilitar com algumas funções em PowerShell
+Lidar com arquivos de texto extensos pode ser um pouco dificil ou demorado, mas podemos facilitar com algumas funções em PowerShell
 
 ## Contar linhas
 
@@ -33,7 +33,7 @@ Substituindo o `<caminho do arquivo>` e a `<quantidade de linhas>` o código ger
 $i=0; Get-Content '<caminho do arquivo>' -ReadCount <quantidade de linhas> | %{$i++; $_ | Out-File out_$i.txt}
 {% endhighlight %}
 
-Diferente da nossa língua temos vários caracteres diferentes e acentos, podemos usar um encode para evitar problemas no exemplo estou usando o UTF8, mas temos as opções de **ASCII**, **BigEndianUnicode**, **OEM**, **String**, **Unicode**, **UTF7**, **UTF8**, **UTF8BOM**, **UF8NoBOM**, **UTF32** e **Unknown**
+Na nossa língua temos vários caracteres diferentes e acentos, temos de usar um encode para evitar problemas, no exemplo estou usando o UTF8, mas temos as opções de **ASCII**, **BigEndianUnicode**, **OEM**, **String**, **Unicode**, **UTF7**, **UTF8**, **UTF8BOM**, **UF8NoBOM**, **UTF32** e **Unknown**
 
 
 {% highlight powershell %}
@@ -42,7 +42,8 @@ $i=0; Get-Content '<caminho do arquivo>' -Encoding "UTF8" -ReadCount <quantidade
 
 ## Adicionar cabeçalho para os arquivos
 
-Substituindo o `<caminho do arquivo>` e a `<texto do cabeçalho>`
+Trabalhando banco de dados em arquivos de texto devemos adicionar o cabeçalho para facilitar a manipulação dos arquivos   
+Podemos adicionar um cabeçalho fixo, com o código abaixo substituindo o `<caminho do arquivo>` e a `<texto do cabeçalho>`
 
 
 {% highlight powershell %}
@@ -51,7 +52,7 @@ $header = '<texto do cabeçalho>'
 $($header; Get-Content $textfile) | Set-Content $textfile
 {% endhighlight %}
 
-Substituindo o `<caminho do arquivo>` e a `<caminho do arquivo cabeçalho>`
+Podemos adicionar ou através de um arquivo contendo o cabeçalho, com o código abaixo substituindo o `<caminho do arquivo>` e a `<caminho do arquivo cabeçalho>`
 
 
 {% highlight powershell %}
@@ -63,7 +64,7 @@ $(Get-Content $headerfile; Get-Content $textfile) | Set-Content $textfile
 ## Dividir as linhas mantendo o cabeçalho
 
 Adicionando os controles de `$header = Get-Content $file -First 1` para capturar o cabeçalho na primeira linha e `$(If ($i -ne 1) {$header} Else {$null})` para adicionar nos arquivos além do primeiro o cabeçalho arquivo  
-Substituindo o `<caminho do arquivo>` e a `<quantidade de linhas>`
+Com o ódigo abaixo substituindo o `<caminho do arquivo>` e a `<quantidade de linhas>`
 
 
 {% highlight powershell %}

@@ -16,7 +16,7 @@ Para usar o notebook em um servidor é necessário alterar o arquivo de configur
 jupyter notebook --generate-config
 {% endhighlight %}
 
-#### Acesso externo
+### Acesso externo
 
 Descomentar e configurar o IP Externo que pode ser um `*` para todos os caminhos de acesso ao servidor
 

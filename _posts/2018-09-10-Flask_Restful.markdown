@@ -141,7 +141,7 @@ delete('http://localhost:5000/response').json()
 Uma notação de objetos projetada para o JavaScript, por sua facilitada foi a adotada largamente para armazenamento e trafego de documentos estruturados e sem esquemas, por exemplo um trecho de uma receita de bolo
 
 
-{% highlight js %}
+{% highlight javascript %}
 {
 	'name':'cake', 
 	'categories':[

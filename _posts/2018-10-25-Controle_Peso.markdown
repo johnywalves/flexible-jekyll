@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Controle da evolução corporal (Peso)"
+title: "Controle da evolução corporal (Python)"
 date: 2018-10-25 20:33:15 -0300
 tags: [Python, Visualização]
 img: balance-1.jpg
@@ -138,6 +138,7 @@ df_dados["ScoreAlimentacao"] = 0.025 * np.sqrt(alimentacaoTipo * alimentacaoVolu
 
 ### Número de dias
 
+Adicionando a coluna de Número de dias para facilitar no processo
 
 
 {% highlight python %}
@@ -146,14 +147,17 @@ df_dados["NumeroDias"] = df_dados.index + 1
 
 ### Geração do gráfico
 
+E finalmente gerando a visualização 
 
 
 {% highlight python %}
 import matplotlib.pyplot as plt
 plt.plot(df_dados["NumeroDias"], df_dados["Peso"])
 plt.plot(df_dados["NumeroDias"], df_dados["Limite"])
-plt.scatter(df_dados["NumeroDias"], df_dados["Peso"], s=df_dados["ScoreAtividade"], c=df_dados["Tipo"], alpha=0.5)
-plt.errorbar(df_dados["NumeroDias"], df_dados["Peso"], yerr=df_dados['ScoreAlimentacao'], ecolor="grey", elinewidth=4, alpha=0.75, fmt='none')
+plt.scatter(df_dados["NumeroDias"], df_dados["Peso"], 
+    s=df_dados["ScoreAtividade"], c=df_dados["Tipo"], alpha=0.5)
+plt.errorbar(df_dados["NumeroDias"], df_dados["Peso"], 
+    yerr=df_dados['ScoreAlimentacao'], ecolor="grey", elinewidth=4, alpha=0.75, fmt='none')
 plt.xlabel("Dias")
 plt.ylabel("Medida")
 plt.legend(['Evolução', 'Objetivo'])
@@ -161,7 +165,7 @@ plt.savefig('evolution.png', dpi=300)
 plt.show()
 {% endhighlight %}
 
-![plot of chunk MedidasPeso](/./assets/Rfig/MedidasPeso-1.svg)
+![plot of chunk controle_peso](/./assets/Rfig/controle_peso-1.svg)
 
 ### Visualização da Tabela
 
@@ -171,4 +175,3 @@ tabela = df_dados[['Data', 'NumeroDias', 'Peso', 'Limite', 'ScoreAtividade', 'Sc
 tabela.to_csv('dadosOrganizados.csv')
 tabela.head(15)
 {% endhighlight %}
-

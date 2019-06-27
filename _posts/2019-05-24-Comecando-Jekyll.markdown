@@ -3,7 +3,7 @@ layout: post
 title: "Começando com Jekyll (Ruby)"
 date: 2019-05-24 19:52:13 -0300
 tags: [Web, CMS, Ruby]
-img: gears-1.jpg
+img: jekyll-1.jpg
 output: html_document
 ---
 
@@ -66,8 +66,8 @@ Ele apresenta `title` o título do projeto, `permalink` o endereço dos projetos
 Qualquer variável pode ser declarada nessa parte e acessada  
 
 * **_posts**: Arquivos em markdown (MD) com os conteúdos dos posts
-* **_layouts**: Arquivos em HTML com a estrutura das visualizações dos layouts com o conteúdo no trecho `{{'{{'}}'{{'{{'}}'}}'{{'{{'}}'{{'{{'}}'}}'}}'{{'{{'}}'{{'{{'}}'}}'{{'{{'}}'{{'{{'}}'}}'}}'}} content }}` ou `{{'{{'}}'{{'{{'}}'}}'{{'{{'}}'{{'{{'}}'}}'}}'{{'{{'}}'{{'{{'}}'}}'{{'{{'}}'{{'{{'}}'}}'}}'}} content | markdownify }}`
-* **_includes**: Arquivos em HTML que podem ser usado para adicionar os trechos de código nas páginas, como no exemplo para adicionar footer.html: `{{'{{'}}'{{'{{'}}'}}'{{'{{'}}'{{'{{'}}'}}'}}'{{'{{'}}'{{'{{'}}'}}'{{'{{'}}'{{'{%'}}'}}'}}'}} include footer.html %}`
+* **_layouts**: Arquivos em HTML com a estrutura das visualizações dos layouts com o conteúdo no trecho `{{'{{'}} content }}` ou `{{'{{'}} content | markdownify }}`
+* **_includes**: Arquivos em HTML que podem ser usado para adicionar os trechos de código nas páginas, como no exemplo para adicionar footer.html: `{{'{%'}} include footer.html %}`
 
 ## Variáveis 
 
@@ -95,16 +95,16 @@ As variáveis podem ser usadas com o declaração de raiz + ponto + nome da vari
 | `page` | Valores localizado no front matter da página atual |
 | `layout` | Valores localizado no front matter do layout |
 
-Exemplo para pegar e imprimir o valor do título declarado no front matter como `title: Título` com `{{'{{'}}'{{'{{'}}'}}'{{'{{'}}'{{'{{'}}'}}'}}'{{'{{'}}'{{'{{'}}'}}'{{'{{'}}'{{'{%'}}'}}'}}'}} page.title %}` podendo ser usando em tags e diretivas
+Exemplo para pegar e imprimir o valor do título declarado no front matter como `title: Título` com `{{'{%'}} page.title %}` podendo ser usando em tags e diretivas
 
 ### Listar posts
 
 Usando o foreach na linguagem Liquid, para pegar os valores do front matter dos arquivos contidos na pasta **_posts**
 
 ```html
-{{'{{'}}'{{'{{'}}'}}'{{'{{'}}'{{'{{'}}'}}'}}'{{'{{'}}'{{'{{'}}'}}'{{'{{'}}'{{'{%'}}'}}'}}'}} for post in site.posts %}
-    <a href="{{'{{'}}'{{'{{'}}'}}'{{'{{'}}'{{'{{'}}'}}'}}'{{'{{'}}'{{'{{'}}'}}'{{'{{'}}'{{'{%'}}'}}'}}'}} post.slug %}">{{'{{'}}'{{'{{'}}'}}'{{'{{'}}'{{'{{'}}'}}'}}'{{'{{'}}'{{'{{'}}'}}'{{'{{'}}'{{'{%'}}'}}'}}'}} post.title %}</p>
-{{'{{'}}'{{'{{'}}'}}'{{'{{'}}'{{'{{'}}'}}'}}'{{'{{'}}'{{'{{'}}'}}'{{'{{'}}'{{'{%'}}'}}'}}'}} endfor %}
+{{'{%'}} for post in site.posts %}
+    <a href="{{'{%'}} post.slug %}">{{'{%'}} post.title %}</p>
+{{'{%'}} endfor %}
 ```
 
 O foreach pode ser usando como qual qualquer listagem, talvez para listar as tags no exemplo: `tags: ["Frutas", "Tortas", "Doces"]`
@@ -112,12 +112,12 @@ O foreach pode ser usando como qual qualquer listagem, talvez para listar as tag
 ### Estrutura condicional
 
 ```html
-{{'{{'}}'{{'{{'}}'}}'{{'{{'}}'{{'{{'}}'}}'}}'{{'{{'}}'{{'{{'}}'}}'{{'{{'}}'{{'{%'}}'}}'}}'}} if post.tipo == "ingredientes" %}
-{{'{{'}}'{{'{{'}}'}}'{{'{{'}}'{{'{{'}}'}}'}}'{{'{{'}}'{{'{{'}}'}}'{{'{{'}}'{{'{%'}}'}}'}}'}} elsif post.tipo == "receitas" %}
-{{'{{'}}'{{'{{'}}'}}'{{'{{'}}'{{'{{'}}'}}'}}'{{'{{'}}'{{'{{'}}'}}'{{'{{'}}'{{'{%'}}'}}'}}'}} endif %}
+{{'{%'}} if post.tipo == "ingredientes" %}
+{{'{%'}} elsif post.tipo == "receitas" %}
+{{'{%'}} endif %}
 ```
 
 ## Referências 
 
-[Jekyll - Setup](https://jekyllrb.com/docs/step-by-step/01-setup/)
+[Jekyll - Setup](https://jekyllrb.com/docs/step-by-step/01-setup/)  
 [Jekyll - Variables](https://jekyllrb.com/docs/variables/)

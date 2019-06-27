@@ -105,7 +105,7 @@ graph <- ggplot(mortes, aes(x=qtd, y=minutes_in)) +
 graph
 {% endhighlight %}
 
-![plot of chunk KillBillDeath](/./assets/Rfig/KillBillDeath-1.svg)
+![plot of chunk killbill_mortes](/./assets/Rfig/killbill_mortes-1.svg)
 
 Por final, gerei o arquivo com as informações na variável `graph` para visualização futura e divulgação no site
 

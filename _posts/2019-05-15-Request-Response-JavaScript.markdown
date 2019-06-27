@@ -3,7 +3,7 @@ layout: post
 title: "Comunicação HTTP Servidor e Client (JavaScript)"
 date: 2019-05-15 10:13:13 -0300
 tags: [Web, Server, Client, Request, Response, JavaScript]
-img: gears-1.jpg
+img: mail-1.jpg
 output: html_document
 ---
 

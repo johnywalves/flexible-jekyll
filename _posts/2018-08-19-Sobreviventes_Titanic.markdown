@@ -49,7 +49,7 @@ combi$Embarked <- as.factor(combi$Embarked)
 combi$Sex <- as.factor(combi$Sex)
 {% endhighlight %}
 
-
+Vamos classificar as famílias por nome
 
 
 {% highlight r %}
@@ -59,6 +59,8 @@ combi$TipoFamilia[combi$Familia < 5 & combi$Familia > 1] <- 'Pequena'
 combi$TipoFamilia[combi$Familia > 4] <- 'Grande'
 combi$TipoFamilia <- as.factor(combi$TipoFamilia)
 {% endhighlight %}
+
+
 
 
 {% highlight r %}
@@ -81,12 +83,14 @@ rm(rareTitle)
 combi$Surname <- sapply(combi$Name, FUN=function(x) {trimws(strsplit(x, split = "[.,]")[[1]][1])})
 {% endhighlight %}
 
+## Ajustes de valores faltantes
 
 
 
 {% highlight r %}
 combi$Fare[is.na(combi$Fare)] <- median(combi$Fare[combi$Pclass == 3 & combi$Embarked == "S"], na.rm=TRUE)
 {% endhighlight %}
+
 
 
 {% highlight r %}
@@ -97,10 +101,22 @@ rm(modelo_idade)
 {% endhighlight %}
 
 
+
+{% highlight r %}
+combi$Embarked[combi$Embarked == ""] <- NA
+combi$Embarked[is.na(combi$Embarked)] <- "C"
+{% endhighlight %}
+
+## Segmentação de passageiros
+
+Passageiros com menos de 16 anos como **Crianças**
+
+
 {% highlight r %}
 combi$Kid <- ifelse(combi$Age <= 16, 1, 0)
 combi$Kid <- as.factor(combi$Kid)
 {% endhighlight %}
+Mulheres maiores de 18 anos acompanhadas e com título de "Miss" como **Mães**
 
 
 {% highlight r %}
@@ -110,8 +126,8 @@ combi$Mother <- as.factor(combi$Mother)
 
 
 {% highlight r %}
-combi$Embarked[combi$Embarked == ""] <- NA
-combi$Embarked[is.na(combi$Embarked)] <- "C"
+combi$Line <- ifelse(combi$Ticket == "LINE", 1, 0)
+combi$Line <- as.factor(combi$Line)
 {% endhighlight %}
 
 
@@ -127,12 +143,6 @@ combi$NCabin <- as.factor(combi$NCabin)
 {% endhighlight %}
 
 
-
-
-{% highlight r %}
-combi$Line <- ifelse(combi$Ticket == "LINE", 1, 0)
-combi$Line <- as.factor(combi$Line)
-{% endhighlight %}
 
 
 {% highlight r %}
@@ -155,12 +165,10 @@ combi$Crew <- ifelse(combi$Fare == 0 & combi$Deck == "", 1, 0)
 
 
 
-
 {% highlight r %}
 names <- colnames(combi)
 campos <- names[!names %in% c("Name", "TipoFamilia", "Ticket", "Cabin", "Surname")]
 combi <- combi[campos]
-
 
 formula <- Survived ~ Pclass + Sex + Age + SibSp + Parch + Fare + Embarked + 
                       Familia + Title + Kid + Mother + Deck + NCabin + Line + 
@@ -210,7 +218,7 @@ ggplot(rankImportance, aes(x = reorder(Variables, Importance),
   theme_minimal()
 {% endhighlight %}
 
-![plot of chunk importance](/./assets/Rfig/importance-1.svg)
+![plot of chunk titanic_importancia](/./assets/Rfig/titanic_importancia-1.svg)
 
 
 ### Visualização 
@@ -240,7 +248,7 @@ ggplot(train, aes(as.factor(Title), fill=Sub, colour=Sub)) +
   scale_colour_manual(values=cbPalette)
 {% endhighlight %}
 
-![plot of chunk unnamed-chunk-19](/./assets/Rfig/unnamed-chunk-19-1.svg)
+![plot of chunk titanic_titulos](/./assets/Rfig/titanic_titulos-1.svg)
 
 No gráfico mostra a segunda característica em importância, crianças de até possuem mais possibilidades de adultos de 16 a 35 anos
 
@@ -255,7 +263,7 @@ ggplot(train, aes(Age, fill = Sub, colour = Sub)) +
   scale_colour_manual(values=cbPalette)
 {% endhighlight %}
 
-![plot of chunk unnamed-chunk-20](/./assets/Rfig/unnamed-chunk-20-1.svg)
+![plot of chunk titanic_idade](/./assets/Rfig/titanic_idade-1.svg)
 
 Infelizmente as pessoas que pagaram menos pela passagem, por estarem mais longes dos botes ou por outros fatores, é o terceiro critério
 
@@ -270,7 +278,7 @@ ggplot(train, aes(Fare, fill = Sub, colour = Sub)) +
   scale_colour_manual(values=cbPalette)
 {% endhighlight %}
 
-![plot of chunk unnamed-chunk-21](/./assets/Rfig/unnamed-chunk-21-1.svg)
+![plot of chunk titanic_preco](/./assets/Rfig/titanic_preco-1.svg)
 
 Embora seja o sétimo o tamanho da família é um dados interessante, proporcionalmente os solteiros tiveram a menor oportunidade de sobrevivência
 
@@ -287,5 +295,4 @@ ggplot(train, aes(as.numeric(Familia), fill=Sub, colour=Sub)) +
   scale_colour_manual(values=cbPalette)
 {% endhighlight %}
 
-![plot of chunk unnamed-chunk-22](/./assets/Rfig/unnamed-chunk-22-1.svg)
-
+![plot of chunk titanic_familia](/./assets/Rfig/titanic_familia-1.svg)

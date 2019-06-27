@@ -50,6 +50,10 @@ pip -V
 pip --version
 {% endhighlight %}
 
+```
+pip install --upgrade pip setuptools wheel
+```
+
 ## Gestão de Dependências
 
 Após o ambiente instalado podemos gerenciar as dependências de maneira bem simples com o **pip**, como por exemplo instalando um pacote pelo nome do pacote
