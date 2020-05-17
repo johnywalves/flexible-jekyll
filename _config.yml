@@ -8,7 +8,7 @@ title: Johny W. Alves
 description: > # this means to ignore newlines until "baseurl:"
   Meu nome é Johny William de Oliveira Alves amo aprender, criei esse espaço para organizar meus estudos, compartilhar e receber feedback.
 permalink: ':title'
-baseurl: "" # the subpath of your site, e.g. /blog
+baseurl: "/jekyll-blog" # the subpath of your site, e.g. /blog
 url: "https://lab.johnywalves.com.br" # the base hostname & protocol for your site, e.g. http://example.com
 site-twitter: #if your site has a twitter account, enter it here
 
